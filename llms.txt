@@ -23,6 +23,7 @@
 
 - [トップページ（機能・料金・よくある質問）](https://focuscafe.libetech.info/)
 - [サポート・お問い合わせ](https://focuscafe.libetech.info/support.html)
+- [プレスキット（紹介文・基本情報・画像素材）](https://focuscafe.libetech.info/press.html)
 - [プライバシーポリシー](https://focuscafe.libetech.info/privacy.html)
 - [利用規約](https://focuscafe.libetech.info/terms.html)
 - [アカウントとデータの削除](https://focuscafe.libetech.info/delete-account.html)
