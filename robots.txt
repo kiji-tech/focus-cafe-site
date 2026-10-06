@@ -1,0 +1,5 @@
+# 検索エンジンと AI のクローラーを含め、すべて許可する
+User-agent: *
+Allow: /
+
+Sitemap: https://focuscafe.libetech.info/sitemap.xml
