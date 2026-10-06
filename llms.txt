@@ -28,6 +28,12 @@
 - [アカウントとデータの削除](https://focuscafe.libetech.info/delete-account.html)
 - [Google Play のページ](https://play.google.com/store/apps/details?id=com.libetech.focuscafe)
 
+## 読みもの
+
+- [ポモドーロ・テクニックのやり方｜25分の理由と、自分に合う時間の決め方](https://focuscafe.libetech.info/pomodoro-technique.html)
+- [通話なしで誰かと一緒に作業する方法｜作業通話がしんどい人のための5つの選択肢](https://focuscafe.libetech.info/work-together-without-call.html)
+- [オンラインもくもく会のやり方｜主催の手順と、続く会にするためのルール](https://focuscafe.libetech.info/online-mokumokukai.html)
+
 ## お問い合わせ
 
 - メール：info@libetech.info
