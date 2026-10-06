@@ -7,15 +7,23 @@
 <meta name="description" content="Focus Cafe は、カフェの作業風景と環境音の中で、仲間とゆるく一緒に集中できるポモドーロタイマーアプリです。招待制の部屋で最大20人と作業でき、通話やマイクは使いません。基本無料（Android）。">
 <link rel="canonical" href="https://kiji-tech.github.io/focus-cafe-site/">
 <link rel="icon" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<meta name="theme-color" content="#17120f">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Focus Cafe">
-<meta property="og:title" content="Focus Cafe｜仲間とゆるく一緒に作業できるポモドーロタイマーアプリ">
+<meta property="og:title" content="Focus Cafe｜仲間とゆるく、カフェで集中。">
 <meta property="og:description" content="カフェの作業風景と環境音の中で、仲間とゆるく一緒に集中できるポモドーロタイマーアプリ。通話なし・招待制の部屋で、最大20人と作業できます。">
 <meta property="og:url" content="https://kiji-tech.github.io/focus-cafe-site/">
-<meta property="og:image" content="https://kiji-tech.github.io/focus-cafe-site/icon.png">
+<meta property="og:image" content="https://kiji-tech.github.io/focus-cafe-site/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:locale" content="ja_JP">
-<meta name="twitter:card" content="summary">
-<link rel="stylesheet" href="style.css">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<link rel="preload" as="image" href="images/cafe-night.webp" type="image/webp">
+<link rel="stylesheet" href="lp.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -24,26 +32,40 @@
       "@type": "MobileApplication",
       "@id": "https://kiji-tech.github.io/focus-cafe-site/#app",
       "name": "Focus Cafe",
+      "alternateName": "フォーカスカフェ",
       "description": "カフェの作業風景と環境音の中で、仲間とゆるく一緒に集中できるポモドーロタイマーアプリ。招待制の部屋で最大20人と作業でき、通話やマイクは使わない。",
       "url": "https://kiji-tech.github.io/focus-cafe-site/",
-      "image": "https://kiji-tech.github.io/focus-cafe-site/icon.png",
+      "image": "https://kiji-tech.github.io/focus-cafe-site/og.jpg",
+      "screenshot": [
+        "https://kiji-tech.github.io/focus-cafe-site/images/screen-home.webp",
+        "https://kiji-tech.github.io/focus-cafe-site/images/screen-stats.webp"
+      ],
       "applicationCategory": "ProductivityApplication",
       "operatingSystem": "Android 8.0 以上",
       "inLanguage": "ja",
       "installUrl": "https://play.google.com/store/apps/details?id=com.libetech.focuscafe",
       "sameAs": ["https://play.google.com/store/apps/details?id=com.libetech.focuscafe"],
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "JPY"
-      },
+      "offers": [
+        { "@type": "Offer", "name": "無料", "price": "0", "priceCurrency": "JPY" },
+        { "@type": "Offer", "name": "FocusCafe Plus（月額）", "price": "300", "priceCurrency": "JPY" },
+        { "@type": "Offer", "name": "FocusCafe Plus（年額）", "price": "2400", "priceCurrency": "JPY" }
+      ],
       "publisher": { "@id": "https://kiji-tech.github.io/focus-cafe-site/#org" }
     },
     {
       "@type": "Organization",
       "@id": "https://kiji-tech.github.io/focus-cafe-site/#org",
       "name": "LibeTech",
-      "email": "info@libetech.info"
+      "email": "info@libetech.info",
+      "logo": "https://kiji-tech.github.io/focus-cafe-site/icon.png"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://kiji-tech.github.io/focus-cafe-site/#website",
+      "url": "https://kiji-tech.github.io/focus-cafe-site/",
+      "name": "Focus Cafe",
+      "inLanguage": "ja",
+      "publisher": { "@id": "https://kiji-tech.github.io/focus-cafe-site/#org" }
     },
     {
       "@type": "FAQPage",
@@ -51,42 +73,90 @@
         {
           "@type": "Question",
           "name": "Focus Cafe は無料で使えますか？",
-          "acceptedAnswer": { "@type": "Answer", "text": "はい。タイマー・部屋・チャット・ランキング・連続日数の記録は無料で使えます。すべての背景と曲や、30日より前の記録などを使いたい人向けに、有料のサブスクリプション「FocusCafe Plus」（月額・年額）があります。" }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい。タイマー・部屋・チャット・ランキング・連続日数は無料で使えます。すべての背景と BGM や、30日より前の記録を見たい人向けに、有料のサブスクリプション「FocusCafe Plus」（月額300円・年額2,400円）があります。"
+          }
         },
         {
           "@type": "Question",
           "name": "通話やマイクは使いますか？",
-          "acceptedAnswer": { "@type": "Answer", "text": "使いません。一緒に作業している人の様子は、席に座ったアバターと「集中中」「休憩中」といった表示で伝わります。やりとりは200文字までの文字のチャットだけなので、声や顔を出さずに作業できます。" }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "使いません。一緒に作業している人の様子は、席に座ったアバターと「集中」「休憩」の表示で伝わります。やりとりは200文字までの文字のチャットだけなので、声や顔を出さずに作業できます。"
+          }
         },
         {
           "@type": "Question",
           "name": "一人でも使えますか？",
-          "acceptedAnswer": { "@type": "Answer", "text": "使えます。登録すると自分だけの「ひとり部屋」ができ、そこでポモドーロタイマーを使って作業できます。" }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "使えます。登録すると自分だけの「ひとり部屋」ができ、そこでポモドーロタイマーを使って作業できます。連続日数や記録も、ひとりのときと同じように残ります。"
+          }
         },
         {
           "@type": "Question",
           "name": "知らない人と同じ部屋になりますか？",
-          "acceptedAnswer": { "@type": "Answer", "text": "なりません。部屋は、作った人が招待コードを送った人だけが入れる招待制です。1つの部屋には最大20人まで参加でき、同時に座れるのは8席です。困った相手は通報・ブロックできます。" }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "なりません。部屋は、作った人が招待コードを送った人だけが入れる招待制で、公開の部屋の一覧もありません。1つの部屋には20人まで参加でき、同時に座れるのは8席です。困った相手は通報・ブロックできます。"
+          }
         },
         {
           "@type": "Question",
-          "name": "集中と休憩の時間は変えられますか？",
-          "acceptedAnswer": { "@type": "Answer", "text": "変えられます。集中は5〜90分（5分きざみ）、休憩は1〜30分の範囲で設定できます。終わったときにはアラーム音と通知でお知らせします。" }
+          "name": "ポモドーロ・テクニックとは何ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "25分集中して5分休む、をくり返す時間管理の方法です。作業を短い区切りに分けることで、取りかかりやすくなり、疲れる前に休めます。Focus Cafe でははじめ25分と5分に設定されていて、集中は5〜90分、休憩は1〜30分の範囲で変えられます。"
+          }
         },
         {
           "@type": "Question",
           "name": "アプリを閉じてもタイマーは止まりませんか？",
-          "acceptedAnswer": { "@type": "Answer", "text": "止まりません。タイマーは終了時刻をもとに動いているので、アプリを閉じても時間はずれず、終わったときは通知が届きます。" }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "止まりません。タイマーは終わる時刻をもとに動いているので、アプリを閉じても時間はずれず、終わったときは通知でお知らせします。部屋の画面を離れても、タイマーと BGM はそのまま続きます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "チャットはいつ使えますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "自分が集中していないとき（休憩中・待機中）に使えます。集中しているあいだは読むことも書くこともできないので、作業に集中できます。メッセージは7日たつと消えます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "お休みチケットとは何ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "連続日数を守るためのチケットです。ポモドーロを1回もしなかった日は、チケットが自動で1枚使われ、連続日数が途切れません。はじめに5枚もらえ、5日続けて集中するごとに1枚増えます（持てるのは10枚まで）。"
+          }
         },
         {
           "@type": "Question",
           "name": "広告は表示されますか？",
-          "acceptedAnswer": { "@type": "Answer", "text": "勝手に表示される広告はありません。お休みチケットや有料背景のお試しがほしいときに、自分で選んで見る広告だけがあります。集中中には広告を表示しません。" }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "勝手に表示される広告はありません。お休みチケットや有料の背景のお試し（24時間）がほしいときに、自分で選んで見る広告だけがあります。集中中には広告を表示しません。"
+          }
         },
         {
           "@type": "Question",
           "name": "iPhone でも使えますか？",
-          "acceptedAnswer": { "@type": "Answer", "text": "iPhone 版は現在 App Store の審査中です。公開されたらこのページでお知らせします。Android 版は Google Play で配信しています。" }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "iPhone 版は現在 App Store の審査中です。公開されたらこのページでお知らせします。Android 版（Android 8.0 以上）は Google Play で配信しています。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "アカウントを削除するには？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "アプリの「設定」→「アカウントを削除」から削除できます。アプリを使わずに削除を頼む方法は、アカウントとデータの削除のページをご覧ください。"
+          }
         }
       ]
     }
@@ -95,69 +165,346 @@
 </script>
 </head>
 <body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="icon.png" alt="" width="30" height="30">Focus Cafe</a>
+    <nav class="site-nav" aria-label="ページ内">
+      <a href="#features">できること</a>
+      <a href="#how">はじめかた</a>
+      <a href="#compare">くらべる</a>
+      <a href="#pricing">料金</a>
+      <a href="#faq">よくある質問</a>
+    </nav>
+    <a class="header-cta" href="https://play.google.com/store/apps/details?id=com.libetech.focuscafe">アプリを入手</a>
+  </div>
+</header>
+
 <main>
-<h1>Focus Cafe</h1>
-<p><strong>Focus Cafe（フォーカスカフェ）は、カフェの作業風景と環境音の中で、仲間とゆるく一緒に集中できるポモドーロタイマーアプリです。</strong>招待制の部屋に最大20人で集まり、通話やマイクを使わずに、それぞれのペースで作業できます。基本無料で、Android 版を Google Play で配信しています（iPhone 版は審査中）。</p>
 
-<p><a href="https://play.google.com/store/apps/details?id=com.libetech.focuscafe">Google Play で入手する</a></p>
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Pomodoro × Cafe</p>
+      <h1>仲間とゆるく、<br>カフェで集中。</h1>
+      <p class="lead"><strong>Focus Cafe（フォーカスカフェ）は、カフェの作業風景と環境音の中で、仲間とゆるく一緒に集中できるポモドーロタイマーアプリです。</strong>招待制の部屋に最大20人で集まり、通話もマイクも使わずに、それぞれのペースで作業できます。</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.libetech.focuscafe">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 2.8v18.4c0 .7.8 1.2 1.4.8l15.4-9.2c.6-.4.6-1.2 0-1.6L5.4 2c-.6-.4-1.4.1-1.4.8z"/></svg>
+          <span>Google Play で入手<br><small>Android 版・基本無料</small></span>
+        </a>
+        <span class="btn btn-ghost"><span>App Store<br><small>iPhone 版は審査中</small></span></span>
+      </div>
+      <ul class="hero-facts">
+        <li>基本無料</li>
+        <li>通話・マイクなし</li>
+        <li>招待制の部屋</li>
+        <li>集中 5〜90分</li>
+      </ul>
+    </div>
+    <div class="hero-visual">
+      <img src="images/cafe-night.webp" width="1000" height="847" alt="夜のカフェの2つのテーブルに、8人のアバターが座ってノートパソコンで作業している様子（Focus Cafe の部屋の画面）" fetchpriority="high">
+      <div class="float-bubble" aria-hidden="true"><b>つむぎ</b>1ポモ終わった〜 ☕</div>
+      <div class="float-timer" aria-hidden="true">
+        <div class="state">集中・7/8席</div>
+        <div class="time num">24:12</div>
+        <div class="bar"><span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<h2>Focus Cafe でできること</h2>
-<ul>
-  <li><strong>カフェの席で一緒に作業</strong>：部屋に入ると、カフェのテーブル（4人掛け×2、8席）に自分のアバターが座ります。ほかの人が「集中中」「休憩中」か、残り何分かが見えるので、ひとりでも誰かと一緒にいる感覚で作業できます。</li>
-  <li><strong>ポモドーロタイマー</strong>：集中（5〜90分）と休憩（1〜30分）をくり返します。アプリを閉じても時間はずれず、終わったときは通知でお知らせします。</li>
-  <li><strong>カフェの環境音と背景</strong>：集中中は、部屋の背景に合わせたカフェのBGMが流れます。背景は自分の画面だけで変えられます。</li>
-  <li><strong>通話なしのゆるいつながり</strong>：やりとりは文字のチャットだけ。声も顔も出さずに「おつかれさま」を送り合えます。</li>
-  <li><strong>記録と連続日数</strong>：週・月ごとの集中時間とポモドーロの回数をグラフで見られます。5日続けるとお休みチケットがもらえ、休んだ日も連続日数が途切れません。</li>
-  <li><strong>ランキング</strong>：今週・今月の集中時間の順位を見られます。ランキングに出さない設定もできます。</li>
-</ul>
+<section class="section about light" id="about">
+  <div class="wrap">
+    <div class="about-text">
+      <p class="eyebrow">What is Focus Cafe</p>
+      <h2>ひとりだと続かない作業を、<br>誰かの気配で続けられる。</h2>
+      <p>家だと集中できないのに、カフェや図書館だとはかどる。そんな経験はありませんか。まわりで誰かががんばっている「気配」は、集中を続ける助けになります。</p>
+      <p>Focus Cafe は、その気配をスマホの中のカフェで再現します。部屋に入ると、あなたのアバターがカフェの席に座ります。同じ部屋の仲間が「集中」しているか「休憩」しているか、あと何分かが見えるので、声をかけ合わなくても一緒にがんばれます。</p>
+      <p>時間の区切りには、25分集中して5分休む「<a href="#faq-pomodoro">ポモドーロ・テクニック</a>」を使います。集中と休憩の長さは自分で変えられます。</p>
+    </div>
+    <dl class="stats">
+      <div class="stat"><dt>1部屋のメンバー</dt><dd><span class="num">20</span>人まで</dd></div>
+      <div class="stat"><dt>同時に座れる席</dt><dd><span class="num">8</span>席</dd></div>
+      <div class="stat"><dt>集中の長さ</dt><dd><span class="num">5–90</span>分</dd></div>
+      <div class="stat"><dt>基本の機能</dt><dd><span class="num">0</span>円</dd></div>
+    </dl>
+  </div>
+</section>
 
-<h2>こんな人に</h2>
-<ul>
-  <li>家だと集中できず、カフェや自習室のような「人の気配」がほしい人</li>
-  <li>友達・同僚・勉強仲間と作業したいけれど、通話はしたくない人</li>
-  <li>勉強・資格の勉強・仕事・創作の作業時間を記録して続けたい人</li>
-</ul>
+<section class="section daynight light">
+  <div class="wrap">
+    <div class="section-head center">
+      <p class="eyebrow">Night &amp; Day</p>
+      <h2>集中は夜のカフェ、休憩は昼のカフェ。</h2>
+      <p>タイマーに合わせて、カフェの景色が変わります。いま集中する時間か、ひと息つく時間か、画面を見ればすぐに分かります。</p>
+    </div>
+    <div class="daynight-grid">
+      <article class="dn-card night">
+        <img src="images/cafe-night.webp" width="1000" height="847" alt="集中しているときの夜のカフェ" loading="lazy">
+        <h3><span class="num">FOCUS</span>集中</h3>
+        <p>ランプの灯る夜のカフェで、BGM を聴きながら作業に没頭します。集中しているあいだはチャットも広告も出ないので、作業をじゃまされません。</p>
+      </article>
+      <article class="dn-card day">
+        <img src="images/cafe-day.webp" width="1000" height="847" alt="休憩しているときの昼のカフェ" loading="lazy">
+        <h3><span class="num">BREAK</span>休憩</h3>
+        <p>集中の時間が終わると、自動で休憩に入り、明るい昼のカフェに変わります。休憩中はチャットで「おつかれさま」を送り合えます。</p>
+      </article>
+    </div>
+  </div>
+</section>
 
-<h2>料金</h2>
-<div class="card">
-  <p><strong>無料</strong>：タイマー・部屋・チャット・ランキング・連続日数・直近30日の記録</p>
-  <p><strong>FocusCafe Plus（月額・年額のサブスクリプション）</strong></p>
-  <ul>
-    <li>すべての背景と曲を自分の部屋でいつでも使える</li>
-    <li>お休みチケットが毎月1枚もらえる</li>
-    <li>30日より前の記録と、年のグラフが見られる</li>
-    <li>Plus 限定のアバターのパーツと色、Plus バッジ</li>
-  </ul>
-  <p class="meta">料金はストアの購入画面に表示されます。解約はストアの画面からいつでもできます。</p>
-</div>
+<section class="section light" id="features">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Features</p>
+      <h2>Focus Cafe でできること</h2>
+    </div>
 
-<h2>よくある質問</h2>
-<p><strong>Focus Cafe は無料で使えますか？</strong><br>
-はい。タイマー・部屋・チャット・ランキング・連続日数の記録は無料で使えます。すべての背景と曲や、30日より前の記録などを使いたい人向けに、有料のサブスクリプション「FocusCafe Plus」（月額・年額）があります。</p>
-<p><strong>通話やマイクは使いますか？</strong><br>
-使いません。一緒に作業している人の様子は、席に座ったアバターと「集中中」「休憩中」といった表示で伝わります。やりとりは200文字までの文字のチャットだけなので、声や顔を出さずに作業できます。</p>
-<p><strong>一人でも使えますか？</strong><br>
-使えます。登録すると自分だけの「ひとり部屋」ができ、そこでポモドーロタイマーを使って作業できます。</p>
-<p><strong>知らない人と同じ部屋になりますか？</strong><br>
-なりません。部屋は、作った人が招待コードを送った人だけが入れる招待制です。1つの部屋には最大20人まで参加でき、同時に座れるのは8席です。困った相手は通報・ブロックできます。</p>
-<p><strong>集中と休憩の時間は変えられますか？</strong><br>
-変えられます。集中は5〜90分（5分きざみ）、休憩は1〜30分の範囲で設定できます。終わったときにはアラーム音と通知でお知らせします。</p>
-<p><strong>アプリを閉じてもタイマーは止まりませんか？</strong><br>
-止まりません。タイマーは終了時刻をもとに動いているので、アプリを閉じても時間はずれず、終わったときは通知が届きます。</p>
-<p><strong>広告は表示されますか？</strong><br>
-勝手に表示される広告はありません。お休みチケットや有料背景のお試しがほしいときに、自分で選んで見る広告だけがあります。集中中には広告を表示しません。</p>
-<p><strong>iPhone でも使えますか？</strong><br>
-iPhone 版は現在 App Store の審査中です。公開されたらこのページでお知らせします。Android 版は Google Play で配信しています。</p>
-<p>そのほかの質問は<a href="support.html">サポート・お問い合わせ</a>をご覧ください。</p>
+    <div class="feature">
+      <div class="feature-media">
+        <div class="phone" role="img" aria-label="部屋の画面。夜のカフェの下に、集中の残り時間と一時停止のボタンがある">
+          <div class="screen room-screen">
+            <div class="room-top"><span>‹ <b>もくもく作業部屋</b> ・ 7/8</span><span>♪ 💬<span class="badge">3</span></span></div>
+            <img class="cafe" src="images/cafe-night.webp" width="1000" height="847" alt="" loading="lazy">
+            <div class="label">集中</div>
+            <div class="time num">24:12</div>
+            <div class="pause">一時停止</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="eyebrow">Room</p>
+        <h3>カフェの席に座って、<br>一緒に作業する</h3>
+        <p>部屋に入ると、4人掛けのテーブル2つ（8席）の空いている席に、自分のアバターが座ります。タイマーは一人ひとりのものなので、ほかの人に合わせる必要はありません。好きなときに座って、好きなときに抜けられます。</p>
+        <ul>
+          <li>部屋は招待制。招待コード（英数字6文字）を送った人だけが入れる</li>
+          <li>1部屋に20人まで登録でき、同時に8人まで座れる</li>
+          <li>自分だけの「ひとり部屋」も最初からある</li>
+          <li>部屋の画面を離れても、タイマーはそのまま進む</li>
+        </ul>
+      </div>
+    </div>
 
-<h2>このサイトについて</h2>
-<ul class="links">
-  <li><a href="support.html">サポート・お問い合わせ</a></li>
-  <li><a href="privacy.html">プライバシーポリシー</a></li>
-  <li><a href="terms.html">利用規約</a></li>
-  <li><a href="delete-account.html">アカウントとデータの削除</a></li>
-</ul>
-<footer>運営：LibeTech（<a href="mailto:info@libetech.info">info@libetech.info</a>）</footer>
+    <div class="feature reverse">
+      <div class="feature-media">
+        <div class="phone" role="img" aria-label="部屋のチャットの画面。休憩中のメンバーがあいさつや進み具合を送り合っている">
+          <div class="screen chat-screen">
+            <div class="chat-title">もくもく作業部屋</div>
+            <div class="msg"><span class="ava">み</span><div><div class="name">みお</div><div class="body">こんばんは〜 今日もよろしくお願いします</div></div></div>
+            <div class="msg"><span class="ava">ハ</span><div><div class="name">ハル</div><div class="body">よろしくです！50分いきます</div></div></div>
+            <div class="msg log">つむぎさんが入室しました</div>
+            <div class="msg"><span class="ava">つ</span><div><div class="name">つむぎ</div><div class="body">レポートの締切が明日なので長めにやります…</div></div></div>
+            <div class="msg"><span class="ava">そ</span><div><div class="name">そうた</div><div class="body">1ポモ終わった〜 コーヒー淹れてきます☕</div></div></div>
+            <div class="msg"><span class="ava">け</span><div><div class="name">けいすけ</div><div class="body">おつかれさまです！</div></div></div>
+            <div class="chat-input"><span>メッセージ</span><b>送る</b></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="eyebrow">Chat</p>
+        <h3>声を出さずに、<br>「おつかれさま」を送り合う</h3>
+        <p>やりとりは、部屋の中の文字のチャットだけです。通話のように声や生活音を気にする必要はなく、顔も出しません。集中しているあいだはチャットを読み書きできないので、休憩の時間にまとめて読めます。</p>
+        <ul>
+          <li>メッセージは1回200文字まで。7日たつと消える</li>
+          <li>フレンド申請や個人あてのメッセージはない</li>
+          <li>困った相手は、通報・ブロックできる（相手には知らされない）</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="feature-media">
+        <div class="phone"><div class="screen"><img src="images/screen-stats.webp" width="540" height="1168" alt="統計の画面。連続日数13日、お休みチケット6枚、今週の合計2時間5分・ポモドーロ5回が表示されている" loading="lazy"></div></div>
+      </div>
+      <div>
+        <p class="eyebrow">Streak</p>
+        <h3>積み重ねが見えるから、<br>明日も続けたくなる</h3>
+        <p>1日に1回ポモドーロを終えれば、連続日数が1日のびます。5日続けるごとに「お休みチケット」が1枚もらえ、集中できなかった日は自動でチケットが使われて、連続日数が途切れません。</p>
+        <ul>
+          <li>週・月ごとの集中時間とポモドーロの回数をグラフで見られる</li>
+          <li>はじめにお休みチケットを5枚もらえる（持てるのは10枚まで）</li>
+          <li>今週・今月の集中時間のランキングもある（出さない設定もできる）</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="feature reverse">
+      <div class="feature-media">
+        <div class="phone"><div class="screen"><img src="images/screen-home.webp" width="540" height="1168" alt="ホームの画面。集中の残り時間、今日と今週の集中時間、参加中の部屋の一覧が表示されている" loading="lazy"></div></div>
+      </div>
+      <div>
+        <p class="eyebrow">Timer</p>
+        <h3>アプリを閉じても、<br>タイマーはずれない</h3>
+        <p>タイマーは「終わる時刻」をもとに動いているので、ほかのアプリを使っていても、画面を消していても、時間は正しく進みます。集中と休憩が終わったときは、アラーム音つきの通知でお知らせします。</p>
+        <ul>
+          <li>集中は5〜90分（5分きざみ）、休憩は1〜30分。はじめは25分と5分</li>
+          <li>集中中は、部屋の背景に合ったカフェの BGM が流れる（ミュートもできる）</li>
+          <li>BGM はアプリを裏に回しても流れ続ける</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="feature-media">
+        <div class="avatar-stage"><img src="images/avatar.webp" width="400" height="467" alt="眼鏡をかけて椅子に座っている、Focus Cafe のアバター" loading="lazy"></div>
+      </div>
+      <div>
+        <p class="eyebrow">Avatar</p>
+        <h3>カフェに座る自分を、<br>着せ替える</h3>
+        <p>部屋の席に座るのは、あなたのアバターです。顔・髪型・髪の色・体型・服・小物を組み合わせて、自分らしい姿にできます。集中しているときはノートパソコンや本、スケッチブックなどを、休憩のときはコーヒーや抹茶ラテ、ケーキセットなどを手にします。</p>
+        <ul>
+          <li>顔4種・髪型9種・髪の色16色・体型3種</li>
+          <li>集中中の持ち物7種と、休憩中の飲み物・スイーツ7種から選べる</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section light" id="how" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">How to start</p>
+      <h2>はじめかた</h2>
+      <p>インストールしてから、最初のポモドーロを始めるまで1分ほどです。</p>
+    </div>
+    <ol class="steps">
+      <li><span class="num">01</span><h3>ログインする</h3><p>Google アカウント（iPhone 版では Apple アカウントも）でログインします。メールアドレスやパスワードの登録はいりません。</p></li>
+      <li><span class="num">02</span><h3>部屋を選ぶ</h3><p>ひとりなら「ひとり部屋」へ。仲間と使うなら部屋を作って招待コードを送るか、もらったコードで参加します。</p></li>
+      <li><span class="num">03</span><h3>スタートする</h3><p>席に座ったらタイマーをスタート。夜のカフェで BGM が流れ、集中の時間が始まります。</p></li>
+      <li><span class="num">04</span><h3>休憩して、くり返す</h3><p>時間になると自動で休憩に。チャットでひと息ついたら、次のポモドーロへ。</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section compare light" id="compare">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Compare</p>
+      <h2>作業通話やもくもく会と、<br>なにがちがう？</h2>
+      <p>「誰かと一緒に作業する」方法はいくつかあります。Focus Cafe は、通話ほど気をつかわず、ひとりのタイマーより続けやすい、そのあいだを目指しています。</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th scope="col"></th><th scope="col" class="us">Focus Cafe</th><th scope="col">作業通話<br>（Discord など）</th><th scope="col">オンラインもくもく会<br>（Zoom など）</th><th scope="col">ふつうの<br>ポモドーロタイマー</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">声・顔</th><td class="us">出さない（文字のチャットだけ）</td><td>声を出す・聞く（ミュートもできる）</td><td>カメラをオンにすることが多い</td><td>使わない</td></tr>
+          <tr><th scope="row">一緒にいる感じ</th><td class="us">席のアバターと「集中・休憩」の表示で分かる</td><td>声や物音で分かる</td><td>画面の顔で分かる</td><td>なし（ひとり）</td></tr>
+          <tr><th scope="row">時間の区切り</th><td class="us">一人ひとりのポモドーロタイマー</td><td>特になし（タイマーは別に用意する）</td><td>主催者の進行に合わせることが多い</td><td>あり</td></tr>
+          <tr><th scope="row">参加のしかた</th><td class="us">好きなときに入って、好きなときに抜ける</td><td>好きなときに入れる</td><td>開催の時間に合わせる</td><td>いつでも</td></tr>
+          <tr><th scope="row">記録</th><td class="us">集中時間・連続日数・ランキング</td><td>特になし</td><td>特になし</td><td>アプリによる</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">ほかの方法の欄は一般的な使われ方の例です。使うツールや集まりによって変わります。</p>
+  </div>
+</section>
+
+<section class="section light">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">For you</p>
+      <h2>こんな人におすすめ</h2>
+    </div>
+    <div class="persona">
+      <article><span class="icon num">Study</span><h3>受験・資格の勉強に</h3><p>自習室のように、まわりががんばっている空気の中で勉強を進めたい人に。連続日数で毎日の勉強を習慣にできます。</p></article>
+      <article><span class="icon num">Remote</span><h3>在宅ワークに</h3><p>家だとついだらけてしまう人に。同僚やチームで部屋を作れば、通話をつながなくても「一緒に働いている」感覚になります。</p></article>
+      <article><span class="icon num">Create</span><h3>創作・個人開発に</h3><p>イラスト・執筆・プログラミングなど、ひとりで長く向き合う作業に。休憩で進み具合を報告し合えます。</p></article>
+      <article><span class="icon num">Friends</span><h3>友達との習慣づくりに</h3><p>「毎晩21時に集まって1時間」など、友達との約束の場所に。声を出さないので、夜遅くや家族のいる部屋でも使えます。</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section light" id="pricing" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head center">
+      <p class="eyebrow">Pricing</p>
+      <h2>料金</h2>
+      <p>タイマー・部屋・チャット・ランキング・連続日数は、ずっと無料で使えます。</p>
+    </div>
+    <div class="plans">
+      <article class="plan">
+        <h3>無料</h3>
+        <p class="price"><span class="num">0</span>円</p>
+        <ul>
+          <li>ポモドーロタイマー</li>
+          <li>ひとり部屋と招待制の部屋（作成・参加）</li>
+          <li>部屋のチャット</li>
+          <li>連続日数・お休みチケット・ランキング</li>
+          <li>直近30日の記録（週・月のグラフ）</li>
+        </ul>
+      </article>
+      <article class="plan plus">
+        <span class="tag">年額がおトク</span>
+        <h3>FocusCafe Plus</h3>
+        <p class="price"><span class="num">300</span>円 / 月<small>年額なら 2,400円（月あたり200円）</small></p>
+        <ul>
+          <li>無料の機能すべて</li>
+          <li>すべての背景と BGM を自分の部屋で使える</li>
+          <li>お休みチケットが毎月1枚もらえる</li>
+          <li>30日より前の記録と、年のグラフ</li>
+          <li>Plus 限定のアバターのパーツと色、Plus バッジ</li>
+        </ul>
+      </article>
+    </div>
+    <p class="plans-note">価格は2026年10月時点のものです。実際の価格はストアの購入画面に表示されます。解約はストアからいつでもできます。<br>集中中に広告は出ません。お休みチケットや有料の背景のお試しがほしいときに、自分で選んで見る広告だけがあります。</p>
+  </div>
+</section>
+
+<section class="section compare light" id="faq">
+  <div class="wrap">
+    <div class="section-head center">
+      <p class="eyebrow">FAQ</p>
+      <h2>よくある質問</h2>
+    </div>
+    <div class="faq-list">
+      <details open><summary>Focus Cafe は無料で使えますか？</summary><p>はい。タイマー・部屋・チャット・ランキング・連続日数は無料で使えます。すべての背景と BGM や、30日より前の記録を見たい人向けに、有料のサブスクリプション「FocusCafe Plus」（月額300円・年額2,400円）があります。</p></details>
+      <details><summary>通話やマイクは使いますか？</summary><p>使いません。一緒に作業している人の様子は、席に座ったアバターと「集中」「休憩」の表示で伝わります。やりとりは200文字までの文字のチャットだけなので、声や顔を出さずに作業できます。</p></details>
+      <details><summary>一人でも使えますか？</summary><p>使えます。登録すると自分だけの「ひとり部屋」ができ、そこでポモドーロタイマーを使って作業できます。連続日数や記録も、ひとりのときと同じように残ります。</p></details>
+      <details><summary>知らない人と同じ部屋になりますか？</summary><p>なりません。部屋は、作った人が招待コードを送った人だけが入れる招待制で、公開の部屋の一覧もありません。1つの部屋には20人まで参加でき、同時に座れるのは8席です。困った相手は通報・ブロックできます。</p></details>
+      <details id="faq-pomodoro"><summary>ポモドーロ・テクニックとは何ですか？</summary><p>25分集中して5分休む、をくり返す時間管理の方法です。作業を短い区切りに分けることで、取りかかりやすくなり、疲れる前に休めます。Focus Cafe でははじめ25分と5分に設定されていて、集中は5〜90分、休憩は1〜30分の範囲で変えられます。</p></details>
+      <details><summary>アプリを閉じてもタイマーは止まりませんか？</summary><p>止まりません。タイマーは終わる時刻をもとに動いているので、アプリを閉じても時間はずれず、終わったときは通知でお知らせします。部屋の画面を離れても、タイマーと BGM はそのまま続きます。</p></details>
+      <details><summary>チャットはいつ使えますか？</summary><p>自分が集中していないとき（休憩中・待機中）に使えます。集中しているあいだは読むことも書くこともできないので、作業に集中できます。メッセージは7日たつと消えます。</p></details>
+      <details><summary>お休みチケットとは何ですか？</summary><p>連続日数を守るためのチケットです。ポモドーロを1回もしなかった日は、チケットが自動で1枚使われ、連続日数が途切れません。はじめに5枚もらえ、5日続けて集中するごとに1枚増えます（持てるのは10枚まで）。</p></details>
+      <details><summary>広告は表示されますか？</summary><p>勝手に表示される広告はありません。お休みチケットや有料の背景のお試し（24時間）がほしいときに、自分で選んで見る広告だけがあります。集中中には広告を表示しません。</p></details>
+      <details><summary>iPhone でも使えますか？</summary><p>iPhone 版は現在 App Store の審査中です。公開されたらこのページでお知らせします。Android 版（Android 8.0 以上）は Google Play で配信しています。</p></details>
+      <details><summary>アカウントを削除するには？</summary><p>アプリの「設定」→「アカウントを削除」から削除できます。アプリを使わずに削除を頼む方法は、<a href="delete-account.html">アカウントとデータの削除</a>のページをご覧ください。</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <h2>今日の1ポモドーロを、<br>カフェで始めよう。</h2>
+    <p>インストールは無料。ひとり部屋なら、今すぐ始められます。</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.libetech.focuscafe">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 2.8v18.4c0 .7.8 1.2 1.4.8l15.4-9.2c.6-.4.6-1.2 0-1.6L5.4 2c-.6-.4-1.4.1-1.4.8z"/></svg>
+        <span>Google Play で入手<br><small>Android 版・基本無料</small></span>
+      </a>
+      <span class="btn btn-ghost"><span>App Store<br><small>iPhone 版は審査中</small></span></span>
+    </div>
+    <img src="images/cafe-day.webp" width="1000" height="847" alt="" loading="lazy">
+  </div>
+</section>
+
 </main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="icon.png" alt="" width="30" height="30">Focus Cafe</a>
+    <nav aria-label="サイト">
+      <a href="support.html">サポート・お問い合わせ</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="terms.html">利用規約</a>
+      <a href="delete-account.html">アカウントとデータの削除</a>
+    </nav>
+    <p class="copy">© LibeTech（<a href="mailto:info@libetech.info">info@libetech.info</a>）</p>
+  </div>
+</footer>
+
 </body>
 </html>
