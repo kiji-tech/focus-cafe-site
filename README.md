@@ -8,6 +8,8 @@
 
 - `index.html` と `lp.css`：トップページ（アプリの紹介）。FAQ を直したら、`<head>` の JSON-LD（FAQPage）の文も同じに直す
 - `style.css`：プライバシーポリシー・利用規約・サポート・アカウント削除のページ
+- `llms.txt`：AI 向けのアプリの要約。トップページの機能・料金・FAQ を変えたら、こちらも同じに直す
+- `robots.txt` / `sitemap.xml` / `CNAME`：クローラー向けの設定と、独自ドメイン（focuscafe.libetech.info）
 - `og.jpg`：SNS でシェアされたときの画像（1200×630）
 - `images/`：トップページの画像
   - `cafe-night.webp` / `cafe-day.webp`：アプリのリポジトリの `design/blender/cafe_render.py` を `full` モード・1560×3376 で描き、カフェの部分を切り出して幅1000px にしたもの
