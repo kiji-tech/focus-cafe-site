@@ -11,6 +11,7 @@
 - `press.html` と `press/`：プレスキット（紹介文・基本情報・画像素材）。素材を変えたら `press/focus-cafe-presskit.zip` も作り直す（`cd press && zip -j focus-cafe-presskit.zip focus-cafe-*`）
 - `site.js`：ストアのボタンの計測（GA4 の `store_click`）、ページの共有（`share_click`）、スマホの下に固定するボタン。端末の見分け（`html` の `os-ios`・`os-android`・`os-other`）は各ページの `<head>` の中で先に行う。iPhone 版を公開したら、`only-ios`（準備中の案内）を App Store のボタンに差し替える
 - Google Play へのリンク：ボタンごとに `&referrer=utm_source%3Dfocuscafe_site%26utm_medium%3D<ボタンの場所>%26utm_campaign%3D<ページ>` を付け、`data-store="google_play" data-placement="<ボタンの場所>"` を書く（構造化データの URL には付けない）
+- `lp.css`・`style.css`・`site.js` を変えたら、各ページの読み込みの `?v=YYYYMMDD` を上げる（GitHub Pages はファイルをブラウザに10分キャッシュさせるので、上げないと新しい HTML と古い CSS が組み合わさって表示が崩れる）
 - `style.css`：プライバシーポリシー・利用規約・サポート・アカウント削除のページ
 - `llms.txt`：AI 向けのアプリの要約。トップページの機能・料金・FAQ を変えたら、こちらも同じに直す
 - `robots.txt` / `sitemap.xml` / `CNAME`：クローラー向けの設定と、独自ドメイン（focuscafe.libetech.info）
