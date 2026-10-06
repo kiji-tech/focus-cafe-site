@@ -341,3 +341,33 @@ a { color: var(--primary-text); }
 .zip p { margin: 0; color: var(--on-dark-muted); font-size: 14px; flex: 1; min-width: 200px; }
 .zip p b { color: var(--on-dark); display: block; font-size: 16px; }
 .zip .btn { padding: 10px 22px; font-size: 14px; }
+
+/* ---- 端末ごとの出し分け（html の os-ios / os-android / os-other は <head> の中で付ける） ---- */
+.only-ios { display: none !important; }
+.os-ios .only-ios { display: block !important; }
+.os-ios .not-ios { display: none !important; }
+
+/* iPhone の人への案内（iPhone 版の公開まで） */
+.ios-note { background: rgba(244, 239, 230, 0.06); border: 1px solid rgba(244, 239, 230, 0.16); border-radius: 18px; padding: 16px 20px; margin: 0 0 28px; max-width: 30em; color: var(--on-dark-muted); font-size: 14px; line-height: 1.8; }
+.ios-note b { color: var(--on-dark); display: block; font-size: 16px; margin-bottom: 2px; }
+.ios-note .btn { margin-top: 12px; padding: 10px 20px; font-size: 14px; }
+.closing .ios-note { margin: 0 auto 8px; text-align: left; }
+.btn-share { background: var(--on-dark); color: var(--night); border: none; font: inherit; font-weight: 700; cursor: pointer; }
+
+/* スマホの画面の下に固定するボタン（ヒーローを過ぎたら出す。パソコンでは出さない） */
+.sticky-cta { display: none; }
+@media (max-width: 760px) {
+  .sticky-cta {
+    display: flex; align-items: center; gap: 12px; position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 20;
+    padding: 10px 10px 10px 16px; border-radius: 20px; background: rgba(23, 18, 15, 0.92); color: var(--on-dark);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    transform: translateY(calc(100% + 24px)); transition: transform 0.25s ease;
+  }
+  .sticky-cta.show { transform: none; }
+  .sticky-cta img { width: 36px; height: 36px; border-radius: 9px; flex: none; }
+  .sticky-cta .txt { flex: 1; font-size: 13px; line-height: 1.5; color: var(--on-dark-muted); }
+  .sticky-cta .txt b { display: block; color: var(--on-dark); font-size: 14px; }
+  .sticky-cta .btn { padding: 10px 16px; font-size: 13px; white-space: nowrap; }
+  .os-other .sticky-cta { display: none; }
+  body { padding-bottom: env(safe-area-inset-bottom); }
+}

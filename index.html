@@ -11,6 +11,14 @@
   gtag('js', new Date());
   gtag('config', 'G-TCXWDWXHFK');
 </script>
+<script>
+  // 端末を見分けて html に印を付ける（ボタンの出し分けを、表示の前に決めてちらつかないようにする）
+  (function () {
+    var ua = navigator.userAgent;
+    var ios = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    document.documentElement.classList.add(ios ? 'os-ios' : /Android/.test(ua) ? 'os-android' : 'os-other');
+  })();
+</script>
 <title>Focus Cafe｜仲間とゆるく一緒に作業できるポモドーロタイマーアプリ</title>
 <meta name="description" content="Focus Cafe は、カフェの作業風景と環境音の中で、仲間とゆるく一緒に集中できるポモドーロタイマーアプリです。招待制の部屋で最大20人と作業でき、通話やマイクは使いません。基本無料（Android）。">
 <link rel="canonical" href="https://focuscafe.libetech.info/">
@@ -185,20 +193,25 @@
       <a href="#reads">読みもの</a>
       <a href="#faq">よくある質問</a>
     </nav>
-    <a class="header-cta" href="https://play.google.com/store/apps/details?id=com.libetech.focuscafe">アプリを入手</a>
+    <a class="header-cta not-ios" href="https://play.google.com/store/apps/details?id=com.libetech.focuscafe&amp;referrer=utm_source%3Dfocuscafe_site%26utm_medium%3Dheader%26utm_campaign%3Dtop" data-store="google_play" data-placement="header">アプリを入手</a>
   </div>
 </header>
 
 <main>
 
-<section class="hero">
+<section class="hero" data-sticky-after>
   <div class="wrap">
     <div>
       <p class="eyebrow">Pomodoro × Cafe</p>
       <h1>仲間とゆるく、<br>カフェで集中。</h1>
       <p class="lead"><strong>Focus Cafe（フォーカスカフェ）は、カフェの作業風景と環境音の中で、仲間とゆるく一緒に集中できるポモドーロタイマーアプリです。</strong>招待制の部屋に最大20人で集まり、通話もマイクも使わずに、それぞれのペースで作業できます。</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.libetech.focuscafe">
+      <div class="ios-note only-ios">
+        <b>iPhone 版は準備中です</b>
+        いまは Android 版だけを配信しています。iPhone 版を公開したら、このページでお知らせします。Android を使っている友達がいたら、教えてあげてください。
+        <br><button class="btn btn-share" type="button" data-share="hero">このページを共有する</button>
+      </div>
+      <div class="hero-actions not-ios">
+        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.libetech.focuscafe&amp;referrer=utm_source%3Dfocuscafe_site%26utm_medium%3Dhero%26utm_campaign%3Dtop" data-store="google_play" data-placement="hero">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 2.8v18.4c0 .7.8 1.2 1.4.8l15.4-9.2c.6-.4.6-1.2 0-1.6L5.4 2c-.6-.4-1.4.1-1.4.8z"/></svg>
           <span>Google Play で入手<br><small>Android 版・基本無料</small></span>
         </a>
@@ -504,8 +517,13 @@
   <div class="wrap">
     <h2>今日の1ポモドーロを、<br>カフェで始めよう。</h2>
     <p>インストールは無料。ひとり部屋なら、今すぐ始められます。</p>
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.libetech.focuscafe">
+    <div class="ios-note only-ios">
+      <b>iPhone 版は準備中です</b>
+      いまは Android 版だけを配信しています。iPhone 版を公開したら、このページでお知らせします。Android を使っている友達がいたら、教えてあげてください。
+      <br><button class="btn btn-share" type="button" data-share="closing">このページを共有する</button>
+    </div>
+    <div class="hero-actions not-ios">
+      <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.libetech.focuscafe&amp;referrer=utm_source%3Dfocuscafe_site%26utm_medium%3Dclosing%26utm_campaign%3Dtop" data-store="google_play" data-placement="closing">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 2.8v18.4c0 .7.8 1.2 1.4.8l15.4-9.2c.6-.4.6-1.2 0-1.6L5.4 2c-.6-.4-1.4.1-1.4.8z"/></svg>
         <span>Google Play で入手<br><small>Android 版・基本無料</small></span>
       </a>
@@ -516,6 +534,14 @@
 </section>
 
 </main>
+
+<div class="sticky-cta" aria-label="アプリを入手">
+  <img src="icon.png" alt="" width="36" height="36">
+  <p class="txt not-ios"><b>Focus Cafe</b>Android 版・基本無料</p>
+  <p class="txt only-ios"><b>iPhone 版は準備中</b>公開したらこのページでお知らせします</p>
+  <a class="btn btn-primary not-ios" href="https://play.google.com/store/apps/details?id=com.libetech.focuscafe&amp;referrer=utm_source%3Dfocuscafe_site%26utm_medium%3Dsticky%26utm_campaign%3Dtop" data-store="google_play" data-placement="sticky">Google Play で入手</a>
+  <button class="btn btn-share only-ios" type="button" data-share="sticky">共有する</button>
+</div>
 
 <footer class="site-footer">
   <div class="wrap">
@@ -531,5 +557,6 @@
   </div>
 </footer>
 
+<script src="site.js" defer></script>
 </body>
 </html>

@@ -11,6 +11,14 @@
   gtag('js', new Date());
   gtag('config', 'G-TCXWDWXHFK');
 </script>
+<script>
+  // 端末を見分けて html に印を付ける（ボタンの出し分けを、表示の前に決めてちらつかないようにする）
+  (function () {
+    var ua = navigator.userAgent;
+    var ios = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    document.documentElement.classList.add(ios ? 'os-ios' : /Android/.test(ua) ? 'os-android' : 'os-other');
+  })();
+</script>
 <title>通話なしで誰かと一緒に作業する方法｜作業通話がしんどい人のための5つの選択肢｜Focus Cafe</title>
 <meta name="description" content="誰かと一緒だと集中できるけれど、作業通話は気をつかってしんどい。そんな人のために、通話なしで誰かと一緒に作業する5つの方法を、向いている人・注意点とあわせてくらべました。">
 <link rel="canonical" href="https://focuscafe.libetech.info/work-together-without-call.html">
@@ -133,12 +141,12 @@
       <a href="./#reads">読みもの</a>
       <a href="./#faq">よくある質問</a>
     </nav>
-    <a class="header-cta" href="https://play.google.com/store/apps/details?id=com.libetech.focuscafe">アプリを入手</a>
+    <a class="header-cta not-ios" href="https://play.google.com/store/apps/details?id=com.libetech.focuscafe&amp;referrer=utm_source%3Dfocuscafe_site%26utm_medium%3Dheader%26utm_campaign%3Dtogether" data-store="google_play" data-placement="header">アプリを入手</a>
   </div>
 </header>
 
 <main>
-<div class="article-hero">
+<div class="article-hero" data-sticky-after>
   <div class="wrap">
     <p class="breadcrumb"><a href="./">Focus Cafe</a> › <a href="./#reads">読みもの</a></p>
     <h1>通話なしで誰かと一緒に作業する方法<br>作業通話がしんどい人のための5つの選択肢</h1>
@@ -263,6 +271,14 @@
 </article>
 </main>
 
+<div class="sticky-cta" aria-label="アプリを入手">
+  <img src="icon.png" alt="" width="36" height="36">
+  <p class="txt not-ios"><b>Focus Cafe</b>Android 版・基本無料</p>
+  <p class="txt only-ios"><b>iPhone 版は準備中</b>公開したらこのページでお知らせします</p>
+  <a class="btn btn-primary not-ios" href="https://play.google.com/store/apps/details?id=com.libetech.focuscafe&amp;referrer=utm_source%3Dfocuscafe_site%26utm_medium%3Dsticky%26utm_campaign%3Dtogether" data-store="google_play" data-placement="sticky">Google Play で入手</a>
+  <button class="btn btn-share only-ios" type="button" data-share="sticky">共有する</button>
+</div>
+
 <footer class="site-footer">
   <div class="wrap">
     <a class="brand" href="./"><img src="icon.png" alt="" width="30" height="30">Focus Cafe</a>
@@ -277,5 +293,6 @@
   </div>
 </footer>
 
+<script src="site.js" defer></script>
 </body>
 </html>

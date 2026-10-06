@@ -11,6 +11,14 @@
   gtag('js', new Date());
   gtag('config', 'G-TCXWDWXHFK');
 </script>
+<script>
+  // 端末を見分けて html に印を付ける（ボタンの出し分けを、表示の前に決めてちらつかないようにする）
+  (function () {
+    var ua = navigator.userAgent;
+    var ios = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    document.documentElement.classList.add(ios ? 'os-ios' : /Android/.test(ua) ? 'os-android' : 'os-other');
+  })();
+</script>
 <title>プレスキット｜Focus Cafe</title>
 <meta name="description" content="ポモドーロタイマーアプリ Focus Cafe のプレスキットです。記事やSNSでご紹介いただくときの紹介文、基本情報、アイコン・スクリーンショット・カフェの画像などの素材をまとめています。">
 <link rel="canonical" href="https://focuscafe.libetech.info/press.html">
@@ -64,7 +72,7 @@
       <a href="./#reads">読みもの</a>
       <a href="./#faq">よくある質問</a>
     </nav>
-    <a class="header-cta" href="https://play.google.com/store/apps/details?id=com.libetech.focuscafe">アプリを入手</a>
+    <a class="header-cta not-ios" href="https://play.google.com/store/apps/details?id=com.libetech.focuscafe&amp;referrer=utm_source%3Dfocuscafe_site%26utm_medium%3Dheader%26utm_campaign%3Dpress" data-store="google_play" data-placement="header">アプリを入手</a>
   </div>
 </header>
 
@@ -122,7 +130,7 @@
     <tr><th>広告</th><td>自分で選んで見るリワード広告のみ（集中しているときは表示しません）</td></tr>
     <tr><th>運営</th><td>LibeTech</td></tr>
     <tr><th>公式サイト</th><td><a href="https://focuscafe.libetech.info/">https://focuscafe.libetech.info/</a></td></tr>
-    <tr><th>Google Play</th><td><a href="https://play.google.com/store/apps/details?id=com.libetech.focuscafe">https://play.google.com/store/apps/details?id=com.libetech.focuscafe</a></td></tr>
+    <tr><th>Google Play</th><td><a href="https://play.google.com/store/apps/details?id=com.libetech.focuscafe&amp;referrer=utm_source%3Dfocuscafe_site%26utm_medium%3Dpress_table%26utm_campaign%3Dpress" data-store="google_play" data-placement="press_table">https://play.google.com/store/apps/details?id=com.libetech.focuscafe</a></td></tr>
     <tr><th>お問い合わせ</th><td><a href="mailto:info@libetech.info">info@libetech.info</a></td></tr>
   </tbody>
 </table>
@@ -231,5 +239,6 @@
     });
   });
 </script>
+<script src="site.js" defer></script>
 </body>
 </html>
