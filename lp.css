@@ -225,8 +225,10 @@ a { color: var(--primary-text); }
 .plan.plus { background: var(--night); color: var(--on-dark); border-color: var(--night); position: relative; }
 .plan h3 { margin: 0; font-size: 18px; }
 .plan .price { margin: 8px 0 20px; font-size: 15px; }
-.plan .price .num { font-size: 56px; line-height: 1; margin-right: 4px; }
-.plan.plus .price small { color: var(--on-dark-muted); display: block; font-size: 13px; }
+/* 数字は高さのそろった字形にし、補足の行は両方のカードに置いて、下のリストの始まる高さをそろえる */
+.plan .price .num { font-size: 56px; line-height: 1; margin-right: 4px; font-variant-numeric: lining-nums; }
+.plan .price small { color: var(--muted); display: block; font-size: 13px; margin-top: 8px; }
+.plan.plus .price small { color: var(--on-dark-muted); }
 .plan ul { list-style: none; padding: 0; margin: 0; font-size: 15px; }
 .plan li { padding: 10px 0 10px 26px; border-top: 1px solid var(--border); position: relative; }
 .plan.plus li { border-color: rgba(244, 239, 230, 0.12); color: var(--on-dark-muted); }
