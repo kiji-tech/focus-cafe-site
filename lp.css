@@ -128,12 +128,14 @@ a { color: var(--primary-text); }
 .daynight { background: var(--bg-day); }
 .daynight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .dn-card { border-radius: 28px; padding: 32px 32px 28px; overflow: hidden; }
-.dn-card.night { background: radial-gradient(70% 60% at 50% 45%, rgba(107, 66, 38, 0.5), transparent 75%), var(--night); color: var(--on-dark); }
+.dn-card.morning { background: radial-gradient(70% 60% at 50% 45%, rgba(255, 233, 210, 0.9), transparent 75%), #efe4d8; color: #2b211b; }
 .dn-card.day { background: radial-gradient(70% 60% at 50% 45%, rgba(255, 255, 255, 0.9), transparent 75%), #efe8dc; color: #2b211b; }
+.dn-card.evening { background: radial-gradient(70% 60% at 50% 45%, rgba(201, 113, 74, 0.45), transparent 75%), #2a1e1a; color: var(--on-dark); }
+.dn-card.night { background: radial-gradient(70% 60% at 50% 45%, rgba(107, 66, 38, 0.5), transparent 75%), var(--night); color: var(--on-dark); }
 .dn-card img { width: 100%; margin: 0 auto 20px; }
 .dn-card h3 { font-size: 22px; margin: 0 0 6px; }
 .dn-card h3 .num { font-size: 15px; letter-spacing: 0.2em; margin-right: 10px; color: var(--accent); }
-.dn-card.day h3 .num { color: var(--primary); }
+.dn-card.morning h3 .num, .dn-card.day h3 .num { color: var(--primary); }
 .dn-card p { margin: 0; font-size: 15px; opacity: 0.85; }
 @media (max-width: 760px) { .daynight-grid { grid-template-columns: 1fr; } .dn-card { padding: 24px 20px; } }
 

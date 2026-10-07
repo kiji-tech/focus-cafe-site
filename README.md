@@ -17,6 +17,6 @@
 - `robots.txt` / `sitemap.xml` / `CNAME`：クローラー向けの設定と、独自ドメイン（focuscafe.libetech.info）
 - `og.jpg`：SNS でシェアされたときの画像（1200×630）
 - `images/`：トップページの画像
-  - `cafe-night.webp` / `cafe-day.webp`：アプリのリポジトリの `design/blender/cafe_render.py` を `full` モード・1560×3376 で描き、カフェの部分を切り出して幅1000px にしたもの
+  - `cafe-morning.webp` / `cafe-day.webp` / `cafe-evening.webp` / `cafe-night.webp`：アプリのリポジトリの `design/blender/cafe_render.py` を `full` モード・1560×3376 で描き（1つ目の引数が時間帯 `morning|day|evening|night`）、カフェの部分（左上 54,895 から 1440×1219）を切り出して幅1000px にしたもの。切り出したままの PNG はプレスキットの `press/focus-cafe-cafe-<時間帯>.png`
   - `screen-home.webp` / `screen-stats.webp`：ストア用のスクリーンショットから画面の部分を切り出したもの
   - `avatar.webp`：アプリのリポジトリの `design/renders/avatar_closeup.png`
