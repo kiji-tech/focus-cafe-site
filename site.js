@@ -13,6 +13,20 @@
     }
   });
 
+  // パソコンのヘッダーの「アプリを入手」のメニュー：外を押したとき・Esc を押したとき・ストアを選んだときに閉じる
+  const menu = document.querySelector('.get-menu');
+  if (menu) {
+    document.addEventListener('click', (e) => {
+      if (menu.open && (!menu.contains(e.target) || e.target.closest('a'))) menu.open = false;
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menu.open) {
+        menu.open = false;
+        menu.querySelector('summary').focus();
+      }
+    });
+  }
+
   // スマホの下に固定するボタン：最初のボタン（ヒーローや記事の見出し）が見えなくなったら出す
   // 最後の呼びかけ（同じストアのボタンがある）やフッターが見えているあいだは、重ならないよう隠す
   const bar = document.querySelector('.sticky-cta');

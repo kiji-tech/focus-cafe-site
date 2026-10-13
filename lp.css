@@ -63,7 +63,16 @@ a { color: var(--primary-text); }
 .site-nav a { color: var(--on-dark-muted); text-decoration: none; font-size: 14px; }
 .site-nav a:hover { color: var(--on-dark); }
 .header-cta { background: var(--accent); color: var(--night); text-decoration: none; font-weight: 700; font-size: 14px; padding: 8px 18px; border-radius: 999px; }
-@media (max-width: 760px) { .site-nav { display: none; } .header-cta { margin-left: auto; } }
+@media (max-width: 760px) { .site-nav { display: none; } .header-cta, .get-menu { margin-left: auto; } }
+/* パソコンのヘッダーで、押すと開くストアの選び方 */
+.get-menu { position: relative; }
+.get-menu summary { list-style: none; cursor: pointer; }
+.get-menu summary::-webkit-details-marker { display: none; }
+.get-menu summary::after { content: " ▾"; font-size: 11px; }
+.get-menu-list { position: absolute; right: 0; top: calc(100% + 10px); z-index: 30; min-width: 200px; padding: 6px; background: var(--surface); border-radius: 14px; box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35); }
+.get-menu-list a { display: block; padding: 10px 14px; border-radius: 10px; color: var(--muted); text-decoration: none; font-size: 12px; line-height: 1.5; }
+.get-menu-list a b { display: block; color: var(--text); font-size: 15px; }
+.get-menu-list a:hover { background: var(--surface-muted); }
 
 /* ---- ボタン ---- */
 .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 26px; border-radius: 999px; font-weight: 700; text-decoration: none; font-size: 16px; line-height: 1.4; }
@@ -353,6 +362,9 @@ a { color: var(--primary-text); }
 /* iPhone 用の要素は block で出すので、横に並べるもの・ボタンは元の出し方に戻す */
 .os-ios .hero-actions.only-ios { display: flex !important; }
 .os-ios .btn.only-ios { display: inline-flex !important; }
+/* Android だけ・パソコン（iPhone でも Android でもない）だけに出すもの。いまはヘッダーの「アプリを入手」だけで使う */
+.only-android, .only-other { display: none !important; }
+.os-android .only-android, .os-other .only-other { display: block !important; }
 
 /* ---- 宣伝動画（ヒーローのすぐ下、夜の色のまま続ける） ---- */
 .movie { background: var(--night); color: var(--on-dark); padding: 24px 0 112px; text-align: center; }
