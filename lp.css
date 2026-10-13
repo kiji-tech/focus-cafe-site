@@ -69,7 +69,9 @@ a { color: var(--primary-text); }
 .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 26px; border-radius: 999px; font-weight: 700; text-decoration: none; font-size: 16px; line-height: 1.4; }
 .btn-primary { background: var(--accent); color: var(--night); box-shadow: 0 10px 30px rgba(242, 179, 94, 0.25); }
 .btn-primary:hover { filter: brightness(1.05); }
-.btn-ghost { border: 1px solid rgba(244, 239, 230, 0.28); color: var(--on-dark-muted); cursor: default; }
+/* 2つ目のストアのボタン（端末に合わないほう）。枠だけにして、主のボタンより控えめにする */
+.btn-outline { border: 1px solid rgba(244, 239, 230, 0.4); color: var(--on-dark); }
+.btn-outline:hover { background: rgba(244, 239, 230, 0.08); }
 .btn small { font-weight: 500; font-size: 12px; opacity: 0.8; }
 .btn svg { width: 20px; height: 20px; flex: none; }
 
@@ -348,13 +350,15 @@ a { color: var(--primary-text); }
 .only-ios { display: none !important; }
 .os-ios .only-ios { display: block !important; }
 .os-ios .not-ios { display: none !important; }
+/* iPhone 用の要素は block で出すので、横に並べるもの・ボタンは元の出し方に戻す */
+.os-ios .hero-actions.only-ios { display: flex !important; }
+.os-ios .btn.only-ios { display: inline-flex !important; }
 
-/* iPhone の人への案内（iPhone 版の公開まで） */
-.ios-note { background: rgba(244, 239, 230, 0.06); border: 1px solid rgba(244, 239, 230, 0.16); border-radius: 18px; padding: 16px 20px; margin: 0 0 28px; max-width: 30em; color: var(--on-dark-muted); font-size: 14px; line-height: 1.8; }
-.ios-note b { color: var(--on-dark); display: block; font-size: 16px; margin-bottom: 2px; }
-.ios-note .btn { margin-top: 12px; padding: 10px 20px; font-size: 14px; }
-.closing .ios-note { margin: 0 auto 8px; text-align: left; }
-.btn-share { background: var(--on-dark); color: var(--night); border: none; font: inherit; font-weight: 700; cursor: pointer; }
+/* ---- 宣伝動画（ヒーローのすぐ下、夜の色のまま続ける） ---- */
+.movie { background: var(--night); color: var(--on-dark); padding: 24px 0 112px; text-align: center; }
+.movie h2 { font-size: clamp(24px, 3.2vw, 34px); line-height: 1.45; margin: 0 0 32px; font-weight: 700; }
+.movie video { display: block; width: min(960px, 100%); height: auto; margin: 0 auto; border-radius: var(--radius); background: var(--night-2); box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5); }
+@media (max-width: 560px) { .movie { padding-bottom: 80px; } .movie video { border-radius: 14px; } }
 
 /* スマホの画面の下に固定するボタン（ヒーローを過ぎたら出す。パソコンでは出さない） */
 .sticky-cta { display: none; }

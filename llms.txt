@@ -1,6 +1,6 @@
 # Focus Cafe
 
-> Focus Cafe（フォーカスカフェ）は、カフェの作業風景と環境音の中で、仲間とゆるく一緒に集中できるポモドーロタイマーアプリです。招待制の部屋に最大20人で集まり、通話もマイクも使わずに、それぞれのペースで作業できます。基本無料で、Android 版を Google Play で配信しています（iPhone 版は App Store の審査中）。運営は LibeTech です。
+> Focus Cafe（フォーカスカフェ）は、カフェの作業風景と環境音の中で、仲間とゆるく一緒に集中できるポモドーロタイマーアプリです。招待制の部屋に最大20人で集まり、通話もマイクも使わずに、それぞれのペースで作業できます。基本無料で、iPhone 版（iOS 16.4 以降）を App Store で、Android 版（Android 8.0 以上）を Google Play で配信しています。運営は LibeTech です。
 
 ## 主な特徴
 
@@ -27,6 +27,7 @@
 - [プライバシーポリシー](https://focuscafe.libetech.info/privacy.html)
 - [利用規約](https://focuscafe.libetech.info/terms.html)
 - [アカウントとデータの削除](https://focuscafe.libetech.info/delete-account.html)
+- [App Store のページ](https://apps.apple.com/jp/app/id6816468942)
 - [Google Play のページ](https://play.google.com/store/apps/details?id=com.libetech.focuscafe)
 
 ## 読みもの

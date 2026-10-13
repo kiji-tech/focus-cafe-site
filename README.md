@@ -9,7 +9,7 @@
 - `index.html` と `lp.css`：トップページ（アプリの紹介）。FAQ を直したら、`<head>` の JSON-LD（FAQPage）の文も同じに直す
 - `pomodoro-technique.html` などの記事：本文を書き換えたら、`<head>` の JSON-LD（Article・FAQPage）も同じに直す。記事を足したら、トップページの「読みもの」・`sitemap.xml`・`llms.txt` にも足す。`images/og-<記事>.jpg` は記事の OGP 画像
 - `press.html` と `press/`：プレスキット（紹介文・基本情報・画像素材）。素材を変えたら `press/focus-cafe-presskit.zip` も作り直す（`cd press && zip -j focus-cafe-presskit.zip focus-cafe-*`）
-- `site.js`：ストアのボタンの計測（GA4 の `store_click`）、ページの共有（`share_click`）、スマホの下に固定するボタン。端末の見分け（`html` の `os-ios`・`os-android`・`os-other`）は各ページの `<head>` の中で先に行う。iPhone 版を公開したら、`only-ios`（準備中の案内）を App Store のボタンに差し替える
+- `site.js`：ストアのボタンの計測（GA4 の `store_click`）と、スマホの下に固定するボタン。端末の見分け（`html` の `os-ios`・`os-android`・`os-other`）は各ページの `<head>` の中で先に行う。`only-ios` は iPhone にだけ出すもの（App Store を主のボタンにした並び）、`not-ios` はそれ以外に出すもの
 - Google Play へのリンク：ボタンごとに `&referrer=utm_source%3Dfocuscafe_site%26utm_medium%3D<ボタンの場所>%26utm_campaign%3D<ページ>` を付け、`data-store="google_play" data-placement="<ボタンの場所>"` を書く（構造化データの URL には付けない）
 - `lp.css`・`style.css`・`site.js` を変えたら、各ページの読み込みの `?v=YYYYMMDD` を上げる（GitHub Pages はファイルをブラウザに10分キャッシュさせるので、上げないと新しい HTML と古い CSS が組み合わさって表示が崩れる）
 - `style.css`：プライバシーポリシー・利用規約・サポート・アカウント削除のページ
