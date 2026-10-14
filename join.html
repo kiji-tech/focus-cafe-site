@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 招待のリンク（アプリの共有シートから送る）の受け口。検索には出さない -->
+<meta name="robots" content="noindex">
+<!-- Google アナリティクス（GA4）：サイトの閲覧の解析。プライバシーポリシーの「このウェブサイトのアクセス解析」に書いている -->
+<!-- 招待コードを送らないよう、ページの URL からクエリを外す -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TCXWDWXHFK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TCXWDWXHFK', { page_location: location.origin + location.pathname });
+</script>
+<script>
+  // 端末を見分けて html に印を付ける（自分の端末のストアを先に出す）
+  (function () {
+    var ua = navigator.userAgent;
+    var ios = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    document.documentElement.classList.add(ios ? 'os-ios' : /Android/.test(ua) ? 'os-android' : 'os-other');
+  })();
+</script>
+<title>部屋への招待 | Focus Cafe</title>
+<meta name="description" content="Focus Cafe の部屋に招待されました。アプリで開くと、招待コードが入った状態で参加の手続きができます。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Focus Cafe">
+<meta property="og:title" content="Focus Cafe の部屋に招待されました">
+<meta property="og:description" content="カフェで仲間とゆるく集中できるアプリです。リンクから部屋に参加できます（アプリは基本無料）。">
+<meta property="og:image" content="https://focuscafe.libetech.info/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="stylesheet" href="style.css?v=20261007-2">
+<style>
+  .invite { text-align: center; }
+  .code {
+    display: block; width: 100%; margin: 8px 0 4px; padding: 16px 8px;
+    font: 600 40px/1.2 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: 0.25em;
+    color: inherit; background: var(--surface); border: 1px dashed var(--border); border-radius: 16px; cursor: pointer;
+  }
+  .copied { min-height: 1.5em; }
+  .actions { display: flex; flex-direction: column; gap: 12px; margin: 16px 0; }
+  .btn {
+    display: block; padding: 14px 16px; border-radius: 999px; text-align: center; text-decoration: none; font-weight: 600;
+    border: 1px solid var(--primary);
+  }
+  .btn-primary { background: var(--primary); color: var(--bg); }
+  .btn-outline { color: var(--primary); }
+  .stores { display: flex; flex-direction: column; gap: 12px; }
+  /* 自分の端末のストアを先に出す */
+  .os-android .stores .play { order: -1; }
+  ol { text-align: left; padding-left: 1.4em; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+<header><a href="index.html">Focus Cafe</a></header>
+
+<section id="invite" class="invite" hidden>
+  <h1>部屋に招待されました</h1>
+  <p>Focus Cafe は、カフェで仲間とゆるく集中できるアプリです。通話もマイクも使いません。</p>
+
+  <div class="card">
+    <p class="meta">招待コード（押すとコピーできます）</p>
+    <button type="button" id="code" class="code" aria-describedby="copied"></button>
+    <p id="copied" class="meta copied" role="status"></p>
+  </div>
+
+  <div class="actions">
+    <a id="open-app" class="btn btn-primary" href="#">アプリで開く</a>
+    <p class="meta">アプリがあれば、コードを入れた状態で「コードで参加」の画面が開きます。</p>
+  </div>
+
+  <h2>アプリをまだ入れていない人は</h2>
+  <ol>
+    <li>上の招待コードを押してコピーします</li>
+    <li>アプリを入れて、ログインします（基本無料）</li>
+    <li>ホームの「参加」を押し、コードを貼ります</li>
+  </ol>
+  <div class="stores">
+    <a class="btn btn-outline" href="https://apps.apple.com/jp/app/id6816468942" data-store="app_store" data-placement="join">App Store で入手（iPhone）</a>
+    <a class="btn btn-outline play" href="https://play.google.com/store/apps/details?id=com.libetech.focuscafe&amp;referrer=utm_source%3Dfocuscafe_site%26utm_medium%3Djoin%26utm_campaign%3Dinvite" data-store="google_play" data-placement="join">Google Play で入手（Android）</a>
+  </div>
+</section>
+
+<section id="invalid" hidden>
+  <h1>招待のリンクが正しくないようです</h1>
+  <p>リンクが途中で切れているかもしれません。招待してくれた人に、もう一度送ってもらってください。</p>
+  <p>メッセージに招待コードがあれば、アプリのホームの「参加」から入れることもできます。</p>
+  <p><a href="index.html">Focus Cafe のトップページへ</a></p>
+</section>
+
+<footer>運営：LibeTech ・ <a href="support.html">サポート</a></footer>
+</main>
+<script>
+  // ?code= の招待コードを出す。形はアプリと同じ（紛らわしい 0・O・1・I を除いた英数字6文字）
+  (function () {
+    var m = /[?&]code=([^&#]*)/.exec(location.search);
+    var code = '';
+    try {
+      code = m ? decodeURIComponent(m[1]).trim().toUpperCase() : '';
+    } catch (e) {
+      // 壊れたリンク（%E0 など）は、正しくないリンクとして扱う
+    }
+    if (!/^[A-HJ-NP-Z2-9]{6}$/.test(code)) {
+      document.getElementById('invalid').hidden = false;
+      return;
+    }
+    document.getElementById('invite').hidden = false;
+    document.getElementById('open-app').href = 'focuscafe://room/join?code=' + code;
+
+    var button = document.getElementById('code');
+    var status = document.getElementById('copied');
+    button.textContent = code;
+    // コピーできないブラウザでは、文字を選んだ状態にして手でコピーしてもらう
+    var selectCode = function () {
+      var range = document.createRange();
+      range.selectNodeContents(button);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      status.textContent = '長押ししてコピーしてください';
+    };
+    button.addEventListener('click', function () {
+      if (!navigator.clipboard) return selectCode();
+      navigator.clipboard.writeText(code).then(function () {
+        status.textContent = 'コピーしました';
+      }, selectCode);
+    });
+  })();
+</script>
+<script src="site.js"></script>
+</body>
+</html>
