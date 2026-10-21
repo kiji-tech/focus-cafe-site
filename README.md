@@ -30,3 +30,5 @@
   - `screen-home.webp` / `screen-stats.webp`：ストア用のスクリーンショットから画面の部分を切り出したもの
   - `avatar.webp`：アプリのリポジトリの `design/renders/avatar_closeup.png`
   - `en/screen-home.webp` / `en/screen-stats.webp`：英語の端末のシミュレーターで撮った画面を、540×1168 に縮めたもの
+  - `en/promo.mp4` / `en/promo-poster.webp`：英語の紹介動画（focus-cafe-video の `out/en/focus-cafe-promo-lp.mp4`）と、部屋の場面の1コマ
+    - 英語のトップページの最初の画面の下で流す（日本語の `promo.mp4` と同じ）
