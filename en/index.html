@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google アナリティクス（GA4）：サイトの閲覧の解析。プライバシーポリシーの「このウェブサイトのアクセス解析」に書いている -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TCXWDWXHFK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TCXWDWXHFK');
+</script>
+<script>
+  // 端末を見分けて html に印を付ける（ボタンの出し分けを、表示の前に決めてちらつかないようにする）
+  (function () {
+    var ua = navigator.userAgent;
+    var ios = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    document.documentElement.classList.add(ios ? 'os-ios' : /Android/.test(ua) ? 'os-android' : 'os-other');
+  })();
+</script>
+<title>Focus Cafe | A Pomodoro timer app for focusing together, cozy in a cafe</title>
+<meta name="description" content="Focus Cafe is a Pomodoro timer app where you focus together with friends, surrounded by the sights and sounds of a cafe. Work with up to 20 people in invite-only rooms, with no calls or microphones. Free to use (iPhone and Android).">
+<link rel="canonical" href="https://focuscafe.libetech.info/en/">
+<link rel="alternate" hreflang="ja" href="https://focuscafe.libetech.info/">
+<link rel="alternate" hreflang="en" href="https://focuscafe.libetech.info/en/">
+<link rel="alternate" hreflang="x-default" href="https://focuscafe.libetech.info/">
+<link rel="icon" href="../icon.png">
+<link rel="apple-touch-icon" href="../icon.png">
+<meta name="theme-color" content="#17120f">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Focus Cafe">
+<meta property="og:title" content="Focus Cafe | Focus together, cozy in a cafe">
+<meta property="og:description" content="A Pomodoro timer app for focusing together with friends, surrounded by the sights and sounds of a cafe. No calls, invite-only rooms, up to 20 people.">
+<meta property="og:url" content="https://focuscafe.libetech.info/en/">
+<meta property="og:image" content="https://focuscafe.libetech.info/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<link rel="preload" as="image" href="../images/cafe-night.webp" type="image/webp">
+<link rel="stylesheet" href="../lp.css?v=20261021">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MobileApplication",
+      "@id": "https://focuscafe.libetech.info/#app",
+      "name": "Focus Cafe",
+      "description": "A Pomodoro timer app for focusing together with friends, surrounded by the sights and sounds of a cafe. Work with up to 20 people in invite-only rooms, with no calls or microphones.",
+      "url": "https://focuscafe.libetech.info/en/",
+      "image": "https://focuscafe.libetech.info/og.jpg",
+      "screenshot": [
+        "https://focuscafe.libetech.info/images/en/screen-home.webp",
+        "https://focuscafe.libetech.info/images/en/screen-stats.webp"
+      ],
+      "applicationCategory": "ProductivityApplication",
+      "operatingSystem": "iOS 16.4 or later, Android 8.0 or later",
+      "inLanguage": ["en", "ja"],
+      "installUrl": "https://play.google.com/store/apps/details?id=com.libetech.focuscafe",
+      "sameAs": ["https://play.google.com/store/apps/details?id=com.libetech.focuscafe", "https://apps.apple.com/app/id6816468942"],
+      "offers": [
+        { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "JPY" },
+        { "@type": "Offer", "name": "FocusCafe Plus (monthly)", "price": "300", "priceCurrency": "JPY" },
+        { "@type": "Offer", "name": "FocusCafe Plus (yearly)", "price": "2400", "priceCurrency": "JPY" }
+      ],
+      "publisher": { "@id": "https://focuscafe.libetech.info/#org" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://focuscafe.libetech.info/#org",
+      "name": "LibeTech",
+      "email": "info@libetech.info",
+      "logo": "https://focuscafe.libetech.info/icon.png",
+      "sameAs": ["https://x.com/kiji_tech"]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://focuscafe.libetech.info/en/#webpage",
+      "url": "https://focuscafe.libetech.info/en/",
+      "name": "Focus Cafe",
+      "inLanguage": "en",
+      "isPartOf": { "@id": "https://focuscafe.libetech.info/#website" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is Focus Cafe free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The timer, rooms, chat, ranking, and streaks are free. For people who want every background and music track, or records older than 30 days, there is a paid subscription, FocusCafe Plus (¥300 a month or ¥2,400 a year in Japan)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to use voice calls or a microphone?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. You can see how the others are doing from their avatars in the seats and the \"Focus\" and \"Break\" labels. The only way to talk is a text chat of up to 200 characters, so you can work without showing your voice or face."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use it alone?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. When you sign up, you get your own solo room where you can use the Pomodoro timer. Your streak and records are kept the same way as when you focus with others."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will I end up in a room with strangers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Rooms are invite-only: only people who get the invite code from the room's creator can enter, and there is no list of public rooms. Each room can have up to 20 members, and 8 people can be seated at a time. You can report or block anyone who bothers you."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the Pomodoro Technique?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is a time management method where you repeat 25 minutes of focus and a 5-minute break. Breaking work into short blocks makes it easier to get started and lets you rest before you get tired. Focus Cafe starts with 25 and 5 minutes, and you can set focus time from 5 to 90 minutes and breaks from 1 to 30 minutes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the timer stop when I close the app?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The timer runs on its end time, so it stays accurate even when you close the app, and you get a notification when it ends. The timer and music keep going even if you leave the room screen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When can I use the chat?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "When you are not focusing (during a break, or when your timer is not running). While you focus, you can neither read nor write messages, so you can stay on task. Messages disappear after 7 days."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are rest tickets?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "They protect your streak. On a day you don't finish a single Pomodoro, a ticket is used automatically and your streak continues. You start with 5 tickets and get 1 more for every 5 days in a row that you focus (you can hold up to 10)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are there ads?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No ads appear on their own. The only ads are ones you choose to watch when you want a rest ticket or a 24-hour trial of a paid background. Ads are never shown while you focus."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the app available in English?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The app is available in English and Japanese, and follows your device language."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use it on iPhone?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The iPhone version (iOS 16.4 or later) is on the App Store, and the Android version (Android 8.0 or later) is on Google Play."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I delete my account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Go to Settings, then Delete account in the app. To ask us to delete it without using the app, see the account and data deletion page."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="../icon.png" alt="" width="30" height="30">Focus Cafe</a>
+    <nav class="site-nav" aria-label="On this page">
+      <a href="#features">Features</a>
+      <a href="#how">How to start</a>
+      <a href="#compare">Compare</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="lang-switch" href="../" lang="ja" hreflang="ja">日本語</a>
+    <a class="header-cta only-ios" href="https://apps.apple.com/app/id6816468942" data-store="app_store" data-placement="header">Get the app</a>
+    <a class="header-cta only-android" href="https://play.google.com/store/apps/details?id=com.libetech.focuscafe&amp;hl=en&amp;referrer=utm_source%3Dfocuscafe_site%26utm_medium%3Dheader%26utm_campaign%3Dtop_en" data-store="google_play" data-placement="header">Get the app</a>
+    <!-- パソコンでは端末が分からないので、押したらストアを選べるようにする -->
+    <details class="get-menu only-other">
+      <summary class="header-cta">Get the app</summary>
+      <div class="get-menu-list">
+        <a href="https://apps.apple.com/app/id6816468942" data-store="app_store" data-placement="header"><b>App Store</b>iPhone</a>
+        <a href="https://play.google.com/store/apps/details?id=com.libetech.focuscafe&amp;hl=en&amp;referrer=utm_source%3Dfocuscafe_site%26utm_medium%3Dheader%26utm_campaign%3Dtop_en" data-store="google_play" data-placement="header"><b>Google Play</b>Android</a>
+      </div>
+    </details>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" data-sticky-after>
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Pomodoro × Cafe</p>
+      <h1>Focus together,<br>cozy in a cafe.</h1>
+      <p class="lead"><strong>Focus Cafe is a Pomodoro timer app where you focus together with friends, surrounded by the sights and sounds of a cafe.</strong> Gather in an invite-only room with up to 20 people and work at your own pace, with no calls and no microphone.</p>
+      <div class="hero-actions not-ios">
+        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.libetech.focuscafe&amp;hl=en&amp;referrer=utm_source%3Dfocuscafe_site%26utm_medium%3Dhero%26utm_campaign%3Dtop_en" data-store="google_play" data-placement="hero">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 2.8v18.4c0 .7.8 1.2 1.4.8l15.4-9.2c.6-.4.6-1.2 0-1.6L5.4 2c-.6-.4-1.4.1-1.4.8z"/></svg>
+          <span>Get it on Google Play<br><small>Android · Free to use</small></span>
+        </a>
+        <a class="btn btn-outline" href="https://apps.apple.com/app/id6816468942" data-store="app_store" data-placement="hero"><span>Download on the App Store<br><small>iPhone · Free to use</small></span></a>
+      </div>
+      <div class="hero-actions only-ios">
+        <a class="btn btn-primary" href="https://apps.apple.com/app/id6816468942" data-store="app_store" data-placement="hero"><span>Download on the App Store<br><small>iPhone · Free to use</small></span></a>
+        <a class="btn btn-outline" href="https://play.google.com/store/apps/details?id=com.libetech.focuscafe&amp;hl=en&amp;referrer=utm_source%3Dfocuscafe_site%26utm_medium%3Dhero%26utm_campaign%3Dtop_en" data-store="google_play" data-placement="hero">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 2.8v18.4c0 .7.8 1.2 1.4.8l15.4-9.2c.6-.4.6-1.2 0-1.6L5.4 2c-.6-.4-1.4.1-1.4.8z"/></svg>
+          <span>Get it on Google Play<br><small>Android · Free to use</small></span>
+        </a>
+      </div>
+      <ul class="hero-facts">
+        <li>Free to use</li>
+        <li>No calls or mic</li>
+        <li>Invite-only rooms</li>
+        <li>Focus 5–90 min</li>
+      </ul>
+    </div>
+    <div class="hero-visual">
+      <img src="../images/cafe-night.webp" width="1000" height="847" alt="Eight avatars working on laptops at two tables in a cafe at night (a room in Focus Cafe)" fetchpriority="high">
+      <div class="float-bubble" aria-hidden="true"><b>Emma</b>Finished a Pomodoro ☕</div>
+      <div class="float-timer" aria-hidden="true">
+        <div class="state">Focus · 7/8 seats</div>
+        <div class="time num">24:12</div>
+        <div class="bar"><span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section about light" id="about">
+  <div class="wrap">
+    <div class="about-text">
+      <p class="eyebrow">What is Focus Cafe</p>
+      <h2>Keep going on the work you can't finish alone,<br>with others quietly nearby.</h2>
+      <p>Can't focus at home, but get a lot done at a cafe or library? Simply knowing that someone nearby is working hard helps you keep going.</p>
+      <p>Focus Cafe recreates that feeling in a cafe on your phone. When you enter a room, your avatar takes a seat in the cafe. You can see whether the others in the room are focusing or taking a break, and how many minutes they have left, so you can work hard together without saying a word.</p>
+      <p>Time is divided with the <a href="#faq-pomodoro">Pomodoro Technique</a>: 25 minutes of focus, then a 5-minute break. You can change the length of both.</p>
+    </div>
+    <dl class="stats">
+      <div class="stat"><dt>Members per room</dt><dd>up to <span class="num">20</span></dd></div>
+      <div class="stat"><dt>Seats at a time</dt><dd><span class="num">8</span> seats</dd></div>
+      <div class="stat"><dt>Focus time</dt><dd><span class="num">5–90</span> min</dd></div>
+      <div class="stat"><dt>Core features</dt><dd><span class="num">Free</span></dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section daynight light">
+  <div class="wrap">
+    <div class="section-head center">
+      <p class="eyebrow">Morning, Day, Evening &amp; Night</p>
+      <h2>The cafe changes with the time of day.</h2>
+      <p>The light in the cafe changes through morning, day, evening, and night. Whenever you open the app, you work in the cafe of that hour. The color of the timer shows whether you are focusing or on a break.</p>
+    </div>
+    <div class="daynight-grid">
+      <article class="dn-card morning">
+        <img src="../images/cafe-morning.webp" width="1000" height="847" alt="The cafe in the morning, with low sunlight coming in and a pale pink sky outside" loading="lazy">
+        <h3><span class="num">5:00–</span>Morning</h3>
+        <p>Soft morning light fills the cafe. For the first task of the day, or studying before you head out.</p>
+      </article>
+      <article class="dn-card day">
+        <img src="../images/cafe-day.webp" width="1000" height="847" alt="The cafe during the day, with bright light through large windows and trees outside" loading="lazy">
+        <h3><span class="num">10:00–</span>Day</h3>
+        <p>Bright light pours in through the big windows. On breaks, send each other a quick "good work" in the chat.</p>
+      </article>
+      <article class="dn-card evening">
+        <img src="../images/cafe-evening.webp" width="1000" height="847" alt="The cafe in the evening, with orange sunset light and lamps starting to glow" loading="lazy">
+        <h3><span class="num">16:00–</span>Evening</h3>
+        <p>The sun sets and the lamps come on. For one more push after work or school.</p>
+      </article>
+      <article class="dn-card night">
+        <img src="../images/cafe-night.webp" width="1000" height="847" alt="The cafe at night, with lamps lit and city lights outside the window" loading="lazy">
+        <h3><span class="num">19:00–</span>Night</h3>
+        <p>A lamp-lit cafe at night. While you focus, music plays and no chat or ads appear, so nothing interrupts your work.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section light" id="features">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Features</p>
+      <h2>What you can do in Focus Cafe</h2>
+    </div>
+
+    <div class="feature">
+      <div class="feature-media">
+        <div class="phone" role="img" aria-label="The room screen. Below the cafe at the current time (night here) are the time left to focus and a Pause button">
+          <div class="screen room-screen">
+            <div class="room-top"><span>‹ <b>Study room</b> · 7/8</span><span>♪ 💬<span class="badge">3</span></span></div>
+            <img class="cafe" src="../images/cafe-night.webp" width="1000" height="847" alt="" loading="lazy">
+            <div class="label">Focus</div>
+            <div class="time num">24:12</div>
+            <div class="pause">Pause</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="eyebrow">Room</p>
+        <h3>Take a seat in the cafe<br>and work together</h3>
+        <p>When you enter a room, your avatar sits in an empty seat at one of two tables for four (8 seats). Everyone has their own timer, so you don't need to match anyone. Sit down whenever you like, and leave whenever you like.</p>
+        <ul>
+          <li>Rooms are invite-only. Only people you send the invite code (6 letters and numbers) to can enter</li>
+          <li>Up to 20 members per room, with up to 8 seated at a time</li>
+          <li>You also have your own solo room from the start</li>
+          <li>The timer keeps running even when you leave the room screen</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="feature reverse">
+      <div class="feature-media">
+        <div class="phone" role="img" aria-label="The room chat. Members on a break are greeting each other and sharing their progress">
+          <div class="screen chat-screen">
+            <div class="chat-title">Study room</div>
+            <div class="msg"><span class="ava">M</span><div><div class="name">Mia</div><div class="body">Evening, everyone! Let's do this</div></div></div>
+            <div class="msg"><span class="ava">H</span><div><div class="name">Haru</div><div class="body">Hi! Going for 50 minutes</div></div></div>
+            <div class="msg log">Emma came in</div>
+            <div class="msg"><span class="ava">E</span><div><div class="name">Emma</div><div class="body">My report is due tomorrow, so it's a long one tonight…</div></div></div>
+            <div class="msg"><span class="ava">S</span><div><div class="name">Sam</div><div class="body">One Pomodoro done. Off to make coffee ☕</div></div></div>
+            <div class="msg"><span class="ava">K</span><div><div class="name">Ken</div><div class="body">Good work!</div></div></div>
+            <div class="chat-input"><span>Say something</span><b>Send</b></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="eyebrow">Chat</p>
+        <h3>Share a quiet "good work"<br>without saying a word</h3>
+        <p>The only way to talk is a text chat inside the room. Unlike a call, you don't have to worry about your voice or background noise, and you never show your face. You can't read or write in the chat while you focus, so you can catch up on messages during your break.</p>
+        <ul>
+          <li>Up to 200 characters per message. Messages disappear after 7 days</li>
+          <li>No friend requests and no private messages</li>
+          <li>You can report or block anyone who bothers you (they won't be notified)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="feature-media">
+        <div class="phone"><div class="screen"><img src="../images/en/screen-stats.webp" width="540" height="1168" alt="The stats screen, showing the streak, rest tickets, and this week's total focus time and Pomodoros" loading="lazy"></div></div>
+      </div>
+      <div>
+        <p class="eyebrow">Streak</p>
+        <h3>See your progress add up,<br>and want to keep going tomorrow</h3>
+        <p>Finish one Pomodoro a day and your streak grows by a day. Every 5 days in a row, you get a rest ticket. On a day you can't focus, a ticket is used automatically so your streak continues.</p>
+        <ul>
+          <li>See your focus time and Pomodoros for each week and month in charts</li>
+          <li>Start with 5 rest tickets (you can hold up to 10)</li>
+          <li>Weekly and monthly focus time rankings (you can choose not to appear)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="feature reverse">
+      <div class="feature-media">
+        <div class="phone"><div class="screen"><img src="../images/en/screen-home.webp" width="540" height="1168" alt="The home screen, showing the focus time left, today's and this week's focus time, and your rooms" loading="lazy"></div></div>
+      </div>
+      <div>
+        <p class="eyebrow">Timer</p>
+        <h3>Close the app,<br>and the timer stays on track</h3>
+        <p>The timer runs on its end time, so it stays accurate while you use other apps or turn off the screen. When focus time or a break ends, you get a notification with an alarm sound.</p>
+        <ul>
+          <li>Focus from 5 to 90 minutes (in 5-minute steps) and breaks from 1 to 30 minutes. It starts at 25 and 5 minutes</li>
+          <li>While you focus, cafe music that matches the room's background plays (you can mute it)</li>
+          <li>The music keeps playing even when the app is in the background</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="feature-media">
+        <div class="avatar-stage"><img src="../images/avatar.webp" width="400" height="467" alt="A Focus Cafe avatar wearing glasses, sitting on a chair" loading="lazy"></div>
+      </div>
+      <div>
+        <p class="eyebrow">Avatar</p>
+        <h3>Dress up the avatar<br>that sits in the cafe</h3>
+        <p>The one sitting in the room is your avatar. Mix and match the face, hairstyle, hair color, body type, clothes, and accessories to make it your own. While you focus, it holds a laptop, a book, a sketchbook, and more. On a break, it enjoys coffee, a matcha latte, a cake set, and more.</p>
+        <ul>
+          <li>4 faces, 9 hairstyles, 16 hair colors, and 3 body types</li>
+          <li>Choose from 7 items to use while focusing and 7 drinks and sweets for your breaks</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section light" id="how" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">How to start</p>
+      <h2>How to start</h2>
+      <p>It takes about a minute from installing the app to starting your first Pomodoro.</p>
+    </div>
+    <ol class="steps">
+      <li><span class="num">01</span><h3>Sign in</h3><p>Sign in with your Google account (or your Apple account on iPhone). No email address or password to register.</p></li>
+      <li><span class="num">02</span><h3>Choose a room</h3><p>On your own, go to your solo room. With friends, create a room and send the invite code, or join with a code you received.</p></li>
+      <li><span class="num">03</span><h3>Start</h3><p>Once you're seated, start the timer. Cafe music plays and your focus time begins.</p></li>
+      <li><span class="num">04</span><h3>Take a break, then repeat</h3><p>When time is up, your break starts automatically. Catch your breath in the chat, then on to the next Pomodoro.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section compare light" id="compare">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Compare</p>
+      <h2>How is it different from<br>work calls and online study sessions?</h2>
+      <p>There are several ways to work alongside others. Focus Cafe aims for the space in between: easier on you than a call, and easier to keep up than a timer on your own.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th scope="col"></th><th scope="col" class="us">Focus Cafe</th><th scope="col">Work calls<br>(Discord, etc.)</th><th scope="col">Online study sessions<br>(Zoom, etc.)</th><th scope="col">A regular<br>Pomodoro timer</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Voice and face</th><td class="us">Not shown (text chat only)</td><td>You speak and listen (you can mute)</td><td>Cameras are often on</td><td>Not used</td></tr>
+          <tr><th scope="row">Feeling of being together</th><td class="us">Avatars in seats and "Focus" or "Break" labels</td><td>Voices and sounds</td><td>Faces on screen</td><td>None (alone)</td></tr>
+          <tr><th scope="row">Time blocks</th><td class="us">Everyone has their own Pomodoro timer</td><td>None (you bring your own timer)</td><td>Often follows the host</td><td>Yes</td></tr>
+          <tr><th scope="row">How to join</th><td class="us">Come and go whenever you like</td><td>Join whenever you like</td><td>Join at the scheduled time</td><td>Anytime</td></tr>
+          <tr><th scope="row">Records</th><td class="us">Focus time, streaks, and ranking</td><td>None in particular</td><td>None in particular</td><td>Depends on the app</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">The other columns are examples of typical use. They vary by tool and group.</p>
+  </div>
+</section>
+
+<section class="section light">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">For you</p>
+      <h2>Who it's for</h2>
+    </div>
+    <div class="persona">
+      <article><span class="icon num">Study</span><h3>Exams and certifications</h3><p>For people who want to study surrounded by others working hard, like in a study hall. Your streak helps make studying a daily habit.</p></article>
+      <article><span class="icon num">Remote</span><h3>Working from home</h3><p>For people who slack off at home. Create a room with your coworkers or team, and feel like you're working together without being on a call.</p></article>
+      <article><span class="icon num">Create</span><h3>Creative and indie projects</h3><p>For long solo work like drawing, writing, or programming. Share your progress with each other on breaks.</p></article>
+      <article><span class="icon num">Friends</span><h3>Building habits with friends</h3><p>A place to keep promises like "meet every night at 9 for an hour." No voice needed, so you can use it late at night or with family around.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section light" id="pricing" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head center">
+      <p class="eyebrow">Pricing</p>
+      <h2>Pricing</h2>
+      <p>The timer, rooms, chat, ranking, and streaks are free, always.</p>
+    </div>
+    <div class="plans">
+      <article class="plan">
+        <h3>Free</h3>
+        <p class="price"><span class="num">¥0</span><small>Just sign up and use it for as long as you like</small></p>
+        <ul>
+          <li>Pomodoro timer</li>
+          <li>Solo room and invite-only rooms (create and join)</li>
+          <li>Room chat</li>
+          <li>Streaks, rest tickets, and ranking</li>
+          <li>Records for the last 30 days (weekly and monthly charts)</li>
+        </ul>
+      </article>
+      <article class="plan plus">
+        <span class="tag">Save with yearly</span>
+        <h3>FocusCafe Plus</h3>
+        <p class="price"><span class="num">¥300</span> / month<small>or ¥2,400 a year (¥200 a month)</small></p>
+        <ul>
+          <li>Everything in Free</li>
+          <li>Use every background and music track in your own rooms</li>
+          <li>Get 1 rest ticket every month</li>
+          <li>Records older than 30 days, and the yearly chart</li>
+          <li>Plus-only avatar parts and colors, and a Plus badge</li>
+        </ul>
+      </article>
+    </div>
+    <p class="plans-note">Prices are in Japanese yen as of October 2026. The actual price, in your local currency, is shown on the purchase screen in the store. You can cancel anytime in the store.<br>No ads appear while you focus. The only ads are ones you choose to watch when you want a rest ticket or a trial of a paid background.</p>
+  </div>
+</section>
+
+<section class="section compare light" id="faq">
+  <div class="wrap">
+    <div class="section-head center">
+      <p class="eyebrow">FAQ</p>
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="faq-list">
+      <details open><summary>Is Focus Cafe free?</summary><p>Yes. The timer, rooms, chat, ranking, and streaks are free. For people who want every background and music track, or records older than 30 days, there is a paid subscription, FocusCafe Plus (¥300 a month or ¥2,400 a year in Japan).</p></details>
+      <details><summary>Do I need to use voice calls or a microphone?</summary><p>No. You can see how the others are doing from their avatars in the seats and the "Focus" and "Break" labels. The only way to talk is a text chat of up to 200 characters, so you can work without showing your voice or face.</p></details>
+      <details><summary>Can I use it alone?</summary><p>Yes. When you sign up, you get your own solo room where you can use the Pomodoro timer. Your streak and records are kept the same way as when you focus with others.</p></details>
+      <details><summary>Will I end up in a room with strangers?</summary><p>No. Rooms are invite-only: only people who get the invite code from the room's creator can enter, and there is no list of public rooms. Each room can have up to 20 members, and 8 people can be seated at a time. You can report or block anyone who bothers you.</p></details>
+      <details id="faq-pomodoro"><summary>What is the Pomodoro Technique?</summary><p>It is a time management method where you repeat 25 minutes of focus and a 5-minute break. Breaking work into short blocks makes it easier to get started and lets you rest before you get tired. Focus Cafe starts with 25 and 5 minutes, and you can set focus time from 5 to 90 minutes and breaks from 1 to 30 minutes.</p></details>
+      <details><summary>Does the timer stop when I close the app?</summary><p>No. The timer runs on its end time, so it stays accurate even when you close the app, and you get a notification when it ends. The timer and music keep going even if you leave the room screen.</p></details>
+      <details><summary>When can I use the chat?</summary><p>When you are not focusing (during a break, or when your timer is not running). While you focus, you can neither read nor write messages, so you can stay on task. Messages disappear after 7 days.</p></details>
+      <details><summary>What are rest tickets?</summary><p>They protect your streak. On a day you don't finish a single Pomodoro, a ticket is used automatically and your streak continues. You start with 5 tickets and get 1 more for every 5 days in a row that you focus (you can hold up to 10).</p></details>
+      <details><summary>Are there ads?</summary><p>No ads appear on their own. The only ads are ones you choose to watch when you want a rest ticket or a 24-hour trial of a paid background. Ads are never shown while you focus.</p></details>
+      <details><summary>Is the app available in English?</summary><p>Yes. The app is available in English and Japanese, and follows your device language.</p></details>
+      <details><summary>Can I use it on iPhone?</summary><p>Yes. The iPhone version (iOS 16.4 or later) is on the App Store, and the Android version (Android 8.0 or later) is on Google Play.</p></details>
+      <details><summary>How do I delete my account?</summary><p>Go to Settings, then Delete account in the app. To ask us to delete it without using the app, see <a href="delete-account.html">Account and data deletion</a>.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <h2>Start today's Pomodoro<br>in the cafe.</h2>
+    <p>Free to install. Your solo room is ready right away.</p>
+    <div class="hero-actions not-ios">
+      <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.libetech.focuscafe&amp;hl=en&amp;referrer=utm_source%3Dfocuscafe_site%26utm_medium%3Dclosing%26utm_campaign%3Dtop_en" data-store="google_play" data-placement="closing">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 2.8v18.4c0 .7.8 1.2 1.4.8l15.4-9.2c.6-.4.6-1.2 0-1.6L5.4 2c-.6-.4-1.4.1-1.4.8z"/></svg>
+        <span>Get it on Google Play<br><small>Android · Free to use</small></span>
+      </a>
+      <a class="btn btn-outline" href="https://apps.apple.com/app/id6816468942" data-store="app_store" data-placement="closing"><span>Download on the App Store<br><small>iPhone · Free to use</small></span></a>
+    </div>
+    <div class="hero-actions only-ios">
+      <a class="btn btn-primary" href="https://apps.apple.com/app/id6816468942" data-store="app_store" data-placement="closing"><span>Download on the App Store<br><small>iPhone · Free to use</small></span></a>
+      <a class="btn btn-outline" href="https://play.google.com/store/apps/details?id=com.libetech.focuscafe&amp;hl=en&amp;referrer=utm_source%3Dfocuscafe_site%26utm_medium%3Dclosing%26utm_campaign%3Dtop_en" data-store="google_play" data-placement="closing">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 2.8v18.4c0 .7.8 1.2 1.4.8l15.4-9.2c.6-.4.6-1.2 0-1.6L5.4 2c-.6-.4-1.4.1-1.4.8z"/></svg>
+        <span>Get it on Google Play<br><small>Android · Free to use</small></span>
+      </a>
+    </div>
+    <img src="../images/cafe-day.webp" width="1000" height="847" alt="" loading="lazy">
+  </div>
+</section>
+
+</main>
+
+<div class="sticky-cta" aria-label="Get the app">
+  <img src="../icon.png" alt="" width="36" height="36">
+  <p class="txt not-ios"><b>Focus Cafe</b>Android · Free to use</p>
+  <p class="txt only-ios"><b>Focus Cafe</b>iPhone · Free to use</p>
+  <a class="btn btn-primary not-ios" href="https://play.google.com/store/apps/details?id=com.libetech.focuscafe&amp;hl=en&amp;referrer=utm_source%3Dfocuscafe_site%26utm_medium%3Dsticky%26utm_campaign%3Dtop_en" data-store="google_play" data-placement="sticky">Get it on Google Play</a>
+  <a class="btn btn-primary only-ios" href="https://apps.apple.com/app/id6816468942" data-store="app_store" data-placement="sticky">Download on the App Store</a>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="../icon.png" alt="" width="30" height="30">Focus Cafe</a>
+    <nav aria-label="Site">
+      <a href="support.html">Support and contact</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+      <a href="delete-account.html">Account and data deletion</a>
+      <a href="https://x.com/kiji_tech" rel="me noopener" target="_blank">Developer on X (@kiji_tech)</a>
+    </nav>
+    <p class="copy">© LibeTech (<a href="mailto:info@libetech.info">info@libetech.info</a>)</p>
+  </div>
+</footer>
+
+<script src="../site.js?v=20261013" defer></script>
+</body>
+</html>

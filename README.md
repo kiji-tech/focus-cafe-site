@@ -14,9 +14,19 @@
 - `lp.css`・`style.css`・`site.js` を変えたら、各ページの読み込みの `?v=YYYYMMDD` を上げる（GitHub Pages はファイルをブラウザに10分キャッシュさせるので、上げないと新しい HTML と古い CSS が組み合わさって表示が崩れる）
 - `style.css`：プライバシーポリシー・利用規約・サポート・アカウント削除のページ
 - `llms.txt`：AI 向けのアプリの要約。トップページの機能・料金・FAQ を変えたら、こちらも同じに直す
+- `en/`：英語のページ（トップ・サポート・プライバシーポリシー・利用規約・アカウントの削除・参加）
+  - 記事とプレスキットは日本語だけ
+  - 日本語のページを直したら、`en/` の同じページと `llms.txt` の「English」も直す
+  - 日本語と英語のページは、`<head>` の `hreflang` と `sitemap.xml` の `xhtml:link` で結ぶ
+  - ヘッダーの「English」「日本語」で、もう一方の言語の同じページへ移る
+  - ブラウザの言語で自動で振り分けない（検索エンジンや AI のクローラーが片方しか見なくなるため）
+  - 規約とプライバシーポリシーの英語は参考の訳で、日本語版が優先すると冒頭に書いている
+  - 英語のページの App Store のリンクは国を指定しない（`apps.apple.com/app/id6816468942`）
+  - 英語のページの Google Play のリンクには `&hl=en` を付ける
 - `robots.txt` / `sitemap.xml` / `CNAME`：クローラー向けの設定と、独自ドメイン（focuscafe.libetech.info）
 - `og.jpg`：SNS でシェアされたときの画像（1200×630）
 - `images/`：トップページの画像
   - `cafe-morning.webp` / `cafe-day.webp` / `cafe-evening.webp` / `cafe-night.webp`：アプリのリポジトリの `design/blender/cafe_render.py` を `full` モード・1560×3376 で描き（1つ目の引数が時間帯 `morning|day|evening|night`）、カフェの部分（左上 54,895 から 1440×1219）を切り出して幅1000px にしたもの。切り出したままの PNG はプレスキットの `press/focus-cafe-cafe-<時間帯>.png`
   - `screen-home.webp` / `screen-stats.webp`：ストア用のスクリーンショットから画面の部分を切り出したもの
   - `avatar.webp`：アプリのリポジトリの `design/renders/avatar_closeup.png`
+  - `en/screen-home.webp` / `en/screen-stats.webp`：英語の端末のシミュレーターで撮った画面を、540×1168 に縮めたもの

@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 招待のリンク（アプリの共有シートから送る）の受け口。検索には出さない -->
+<meta name="robots" content="noindex">
+<!-- Google アナリティクス（GA4）：サイトの閲覧の解析。プライバシーポリシーの「このウェブサイトのアクセス解析」に書いている -->
+<!-- 招待コードを送らないよう、ページの URL からクエリを外す -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TCXWDWXHFK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TCXWDWXHFK', { page_location: location.origin + location.pathname });
+</script>
+<script>
+  // 端末を見分けて html に印を付ける（自分の端末のストアを先に出す）
+  (function () {
+    var ua = navigator.userAgent;
+    var ios = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    document.documentElement.classList.add(ios ? 'os-ios' : /Android/.test(ua) ? 'os-android' : 'os-other');
+  })();
+</script>
+<title>You're invited to a room | Focus Cafe</title>
+<meta name="description" content="You've been invited to a room in Focus Cafe. Open it in the app to join with the invite code already filled in.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Focus Cafe">
+<meta property="og:title" content="You're invited to a room in Focus Cafe">
+<meta property="og:description" content="An app for focusing together, cozy in a cafe. Join the room from this link (the app is free to use).">
+<meta property="og:image" content="https://focuscafe.libetech.info/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../icon.png">
+<link rel="apple-touch-icon" href="../icon.png">
+<link rel="stylesheet" href="../style.css?v=20261021">
+<style>
+  .invite { text-align: center; }
+  .code {
+    display: block; width: 100%; margin: 8px 0 4px; padding: 16px 8px;
+    font: 600 40px/1.2 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: 0.25em;
+    color: inherit; background: var(--surface); border: 1px dashed var(--border); border-radius: 16px; cursor: pointer;
+  }
+  .copied { min-height: 1.5em; }
+  .actions { display: flex; flex-direction: column; gap: 12px; margin: 16px 0; }
+  .btn {
+    display: block; padding: 14px 16px; border-radius: 999px; text-align: center; text-decoration: none; font-weight: 600;
+    border: 1px solid var(--primary);
+  }
+  .btn-primary { background: var(--primary); color: var(--bg); }
+  .btn-outline { color: var(--primary); }
+  .stores { display: flex; flex-direction: column; gap: 12px; }
+  /* 自分の端末のストアを先に出す */
+  .os-android .stores .play { order: -1; }
+  ol { text-align: left; padding-left: 1.4em; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+<header><a href="./">Focus Cafe</a><a id="lang-switch" class="lang-switch" href="../join.html" lang="ja" hreflang="ja">日本語</a></header>
+
+<section id="invite" class="invite" hidden>
+  <h1>You're invited to a room</h1>
+  <p>Focus Cafe is an app for focusing together, cozy in a cafe. No calls or microphone needed.</p>
+
+  <div class="card">
+    <p class="meta">Invite code (tap to copy)</p>
+    <button type="button" id="code" class="code" aria-describedby="copied"></button>
+    <p id="copied" class="meta copied" role="status"></p>
+  </div>
+
+  <div class="actions">
+    <a id="open-app" class="btn btn-primary" href="#">Open in the app</a>
+    <p class="meta">If you have the app, the Join with a code screen opens with the code filled in.</p>
+  </div>
+
+  <h2>Don't have the app yet?</h2>
+  <ol>
+    <li>Tap the invite code above to copy it</li>
+    <li>Install the app and sign in (free to use)</li>
+    <li>Tap Join on the Home screen and paste the code</li>
+  </ol>
+  <div class="stores">
+    <a class="btn btn-outline" href="https://apps.apple.com/app/id6816468942" data-store="app_store" data-placement="join">Download on the App Store (iPhone)</a>
+    <a class="btn btn-outline play" href="https://play.google.com/store/apps/details?id=com.libetech.focuscafe&amp;hl=en&amp;referrer=utm_source%3Dfocuscafe_site%26utm_medium%3Djoin%26utm_campaign%3Dinvite_en" data-store="google_play" data-placement="join">Get it on Google Play (Android)</a>
+  </div>
+</section>
+
+<section id="invalid" hidden>
+  <h1>This invite link doesn't seem to be valid</h1>
+  <p>The link may have been cut off. Please ask the person who invited you to send it again.</p>
+  <p>If the message includes an invite code, you can also enter it from Join on the app's Home screen.</p>
+  <p><a href="./">Go to the Focus Cafe home page</a></p>
+</section>
+
+<footer>Operated by LibeTech · <a href="support.html">Support</a></footer>
+</main>
+<script>
+  // ?code= の招待コードを出す。形はアプリと同じ（紛らわしい 0・O・1・I を除いた英数字6文字）
+  (function () {
+    var m = /[?&]code=([^&#]*)/.exec(location.search);
+    var code = '';
+    try {
+      code = m ? decodeURIComponent(m[1]).trim().toUpperCase() : '';
+    } catch (e) {
+      // 壊れたリンク（%E0 など）は、正しくないリンクとして扱う
+    }
+    // 日本語のページへの切り替えにも、招待コードを付けておく
+    document.getElementById('lang-switch').href = '../join.html' + location.search;
+    if (!/^[A-HJ-NP-Z2-9]{6}$/.test(code)) {
+      document.getElementById('invalid').hidden = false;
+      return;
+    }
+    document.getElementById('invite').hidden = false;
+    document.getElementById('open-app').href = 'focuscafe://room/join?code=' + code;
+
+    var button = document.getElementById('code');
+    var status = document.getElementById('copied');
+    button.textContent = code;
+    // コピーできないブラウザでは、文字を選んだ状態にして手でコピーしてもらう
+    var selectCode = function () {
+      var range = document.createRange();
+      range.selectNodeContents(button);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      status.textContent = 'Press and hold to copy';
+    };
+    button.addEventListener('click', function () {
+      if (!navigator.clipboard) return selectCode();
+      navigator.clipboard.writeText(code).then(function () {
+        status.textContent = 'Copied';
+      }, selectCode);
+    });
+  })();
+</script>
+<script src="../site.js"></script>
+</body>
+</html>

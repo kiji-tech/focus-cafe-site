@@ -63,7 +63,14 @@ a { color: var(--primary-text); }
 .site-nav a { color: var(--on-dark-muted); text-decoration: none; font-size: 14px; }
 .site-nav a:hover { color: var(--on-dark); }
 .header-cta { background: var(--accent); color: var(--night); text-decoration: none; font-weight: 700; font-size: 14px; padding: 8px 18px; border-radius: 999px; }
-@media (max-width: 760px) { .site-nav { display: none; } .header-cta, .get-menu { margin-left: auto; } }
+/* 日本語と英語の切り替え（同じ内容のもう一方の言語のページへ） */
+.lang-switch { color: var(--on-dark-muted); text-decoration: none; font-size: 13px; padding: 4px 12px; border: 1px solid currentColor; border-radius: 999px; white-space: nowrap; }
+.lang-switch:hover { color: var(--on-dark); }
+@media (max-width: 760px) {
+  .site-nav { display: none; }
+  .site-header .wrap { gap: 12px; }
+  .lang-switch { margin-left: auto; }
+}
 /* パソコンのヘッダーで、押すと開くストアの選び方 */
 .get-menu { position: relative; }
 .get-menu summary { list-style: none; cursor: pointer; }

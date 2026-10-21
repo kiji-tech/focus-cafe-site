@@ -40,3 +40,15 @@
 
 - メール：info@libetech.info
 - 開発者の X：https://x.com/kiji_tech（@kiji_tech）
+
+## English
+
+Focus Cafe is a Pomodoro timer app where you focus together with friends, surrounded by the sights and sounds of a cafe. Gather in an invite-only room with up to 20 people (8 seated at a time) and work at your own pace, with no calls and no microphone. The app is available in English and Japanese (it follows the device language). Free to use; the optional FocusCafe Plus subscription is ¥300 a month or ¥2,400 a year in Japan as of October 2026 (prices in other countries are shown in the store). iPhone (iOS 16.4 or later) on the App Store and Android (Android 8.0 or later) on Google Play. Operated by LibeTech.
+
+- [Home (features, pricing, FAQ)](https://focuscafe.libetech.info/en/)
+- [Support and contact](https://focuscafe.libetech.info/en/support.html)
+- [Privacy Policy](https://focuscafe.libetech.info/en/privacy.html)
+- [Terms of Use](https://focuscafe.libetech.info/en/terms.html)
+- [Account and data deletion](https://focuscafe.libetech.info/en/delete-account.html)
+- [App Store](https://apps.apple.com/app/id6816468942)
+- [Google Play](https://play.google.com/store/apps/details?id=com.libetech.focuscafe&hl=en)

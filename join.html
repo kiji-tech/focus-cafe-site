@@ -32,7 +32,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="icon.png">
 <link rel="apple-touch-icon" href="icon.png">
-<link rel="stylesheet" href="style.css?v=20261007-2">
+<link rel="stylesheet" href="style.css?v=20261021">
 <style>
   .invite { text-align: center; }
   .code {
@@ -57,7 +57,7 @@
 </head>
 <body>
 <main>
-<header><a href="index.html">Focus Cafe</a></header>
+<header><a href="index.html">Focus Cafe</a><a id="lang-switch" class="lang-switch" href="en/join.html" lang="en" hreflang="en">English</a></header>
 
 <section id="invite" class="invite" hidden>
   <h1>部屋に招待されました</h1>
@@ -105,6 +105,8 @@
     } catch (e) {
       // 壊れたリンク（%E0 など）は、正しくないリンクとして扱う
     }
+    // 英語のページへの切り替えにも、招待コードを付けておく
+    document.getElementById('lang-switch').href = 'en/join.html' + location.search;
     if (!/^[A-HJ-NP-Z2-9]{6}$/.test(code)) {
       document.getElementById('invalid').hidden = false;
       return;
