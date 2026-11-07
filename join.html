@@ -154,6 +154,9 @@
       if (!m) return href;
       return href.replace(m[0], 'referrer=' + encodeURIComponent(decodeURIComponent(m[1]) + '&invite_code=' + code));
     };
+    // 毎回のクリックの最初に戻す（間隔のほぼない続けて押すクリックで、前に書き換えたコードが残らないように）
+    window.addEventListener('click', restoreHrefs, true);
+    window.addEventListener('auxclick', restoreHrefs, true);
     window.addEventListener('click', function (e) {
       // Cmd/Ctrl・Shift・Alt を押したクリックはそのまま（ふつうの新しいタブなど）
       if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
