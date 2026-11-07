@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- 招待のリンク（アプリの共有シートから送る）の受け口。検索には出さない -->
 <meta name="robots" content="noindex">
+<!-- ほかのページへ移るときの Referer は、招待コードを含まないよう origin だけにする（次のページの GA4 の page_view に入らないように） -->
+<meta name="referrer" content="origin">
 <!-- Google アナリティクス（GA4）：サイトの閲覧の解析。プライバシーポリシーの「このウェブサイトのアクセス解析」に書いている -->
 <!-- 招待コードを送らないよう、ページの URL からクエリを外す -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-TCXWDWXHFK"></script>
@@ -71,7 +73,7 @@
   </div>
 
   <div class="actions">
-    <a id="open-app" class="btn btn-primary" href="#">Open in the app</a>
+    <a id="open-app" class="btn btn-primary" href="focuscafe://room/join">Open in the app</a>
     <p class="meta">If you have the app, the Join with a code screen opens with the code filled in.</p>
   </div>
 
@@ -94,6 +96,14 @@
   <p><a href="./">Go to the Focus Cafe home page</a></p>
 </section>
 
+<noscript>
+  <p>Turn on JavaScript to see the invite code. You can still get the app with the buttons below.</p>
+  <div class="stores">
+    <a class="btn btn-outline" href="https://apps.apple.com/app/id6816468942">Download on the App Store (iPhone)</a>
+    <a class="btn btn-outline play" href="https://play.google.com/store/apps/details?id=com.libetech.focuscafe&amp;hl=en&amp;referrer=utm_source%3Dfocuscafe_site%26utm_medium%3Djoin%26utm_campaign%3Dinvite_en">Get it on Google Play (Android)</a>
+  </div>
+</noscript>
+
 <footer>Operated by LibeTech · <a href="support.html">Support</a></footer>
 </main>
 <script>
@@ -113,7 +123,6 @@
       return;
     }
     document.getElementById('invite').hidden = false;
-    document.getElementById('open-app').href = 'focuscafe://room/join?code=' + code;
 
     var button = document.getElementById('code');
     var status = document.getElementById('copied');
@@ -127,34 +136,42 @@
       sel.addRange(range);
       status.textContent = 'Press and hold to copy';
     };
-    // ストアのボタンは href にコードを入れない（GA4 の外部リンクの計測で URL が送られるため。JavaScript が動かなくても href のままストアへ進む）
-    // 押したときに、リンクの移動先だけを書き換える。preventDefault で止めると、GA4 に store_click が届かなくなるので止めない
-    // window の bubble で受ける：load のあとに足すので、document で受ける site.js・GA4 の計測が先に動き、そのあとで書き換わる
+    // 「アプリで開く」とストアのボタンは、href にコードを入れない（GA4 の外部リンクの計測で URL が送られるため）
+    // 押した瞬間だけ、リンクの移動先にコードを足す。preventDefault で止めると、GA4 に store_click が届かなくなるので止めない
+    // click は document の次に window へ伝わる。document で受ける site.js・GA4 の計測が先に動き、そのあとで書き換わる
+    // （順番は伝わる順で決まる。登録の時期は関係ないので、load を待たずに登録する）
+    // 書き換えた href はすぐ元に戻す（あとで GA4 が読んでも、コードが入らないように）
+    var openApp = document.getElementById('open-app');
     var play = document.getElementById('store-play');
-    var playHref = play.getAttribute('href');
-    var withInviteCode = function () {
-      var m = /referrer=([^&]*)/.exec(playHref);
-      if (!m) return playHref;
-      // Google Play：referrer の末尾にコードを足す（referrer の値全体を URL エンコードする）
-      var referrer = decodeURIComponent(m[1]) + '&invite_code=' + code;
-      return playHref.replace(m[0], 'referrer=' + encodeURIComponent(referrer));
+    var originals = [openApp, play].map(function (a) { return [a, a.getAttribute('href')]; });
+    var restoreHrefs = function () {
+      originals.forEach(function (o) { o[0].setAttribute('href', o[1]); });
     };
-    var onStoreClick = function (e) {
+    var withInviteCode = function (link, href) {
+      if (link === openApp) return href + '?code=' + code;
+      // Google Play：referrer の末尾にコードを足す（referrer の値全体を URL エンコードする）
+      var m = /referrer=([^&]*)/.exec(href);
+      if (!m) return href;
+      return href.replace(m[0], 'referrer=' + encodeURIComponent(decodeURIComponent(m[1]) + '&invite_code=' + code));
+    };
+    window.addEventListener('click', function (e) {
       // Cmd/Ctrl・Shift・Alt を押したクリックはそのまま（ふつうの新しいタブなど）
       if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
-      var link = e.target.closest && e.target.closest('[data-store]');
+      var link = e.target.closest && e.target.closest('a');
       if (!link) return;
-      if (link === play) {
-        play.setAttribute('href', withInviteCode());
+      if (link === openApp || link === play) {
+        link.setAttribute('href', withInviteCode(link, link.getAttribute('href')));
+        // 移動が始まったあと（このクリックの処理が終わったあと）に戻す
+        setTimeout(restoreHrefs, 0);
       } else if (link.id === 'store-ios' && navigator.clipboard) {
         // App Store：移る前に、このページの URL（コード付き）をコピーする。コピーできなくても、ストアへは進む
         navigator.clipboard.writeText('https://focuscafe.libetech.info/en/join.html?code=' + code).then(function () {
           status.textContent = 'Copied the link to this page';
         }, function () {});
       }
-    };
-    if (document.readyState === 'complete') window.addEventListener('click', onStoreClick);
-    else window.addEventListener('load', function () { window.addEventListener('click', onStoreClick); });
+    });
+    // 戻る・進むで復元されたページ（bfcache）でも、書き換えが残っていないようにする
+    window.addEventListener('pageshow', restoreHrefs);
     button.addEventListener('click', function () {
       if (!navigator.clipboard) return selectCode();
       navigator.clipboard.writeText(code).then(function () {
