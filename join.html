@@ -77,13 +77,13 @@
 
   <h2>アプリをまだ入れていない人は</h2>
   <ol>
-    <li>上の招待コードを押してコピーします</li>
-    <li>アプリを入れて、ログインします（基本無料）</li>
-    <li>ホームの「参加」を押し、コードを貼ります</li>
+    <li>下のボタンから、アプリを入れます（基本無料）</li>
+    <li>入れたら、もう一度このリンクを押してください。アプリが開き、ログインのあとに「コードで参加」の画面が開きます</li>
+    <li>開かないときは、上の「アプリで開く」を押してください。それでも開かないときは、上の招待コードを押してコピーし、ホームの「参加」に入れてください</li>
   </ol>
   <div class="stores">
-    <a class="btn btn-outline" href="https://apps.apple.com/jp/app/id6816468942" data-store="app_store" data-placement="join">App Store で入手（iPhone）</a>
-    <a class="btn btn-outline play" href="https://play.google.com/store/apps/details?id=com.libetech.focuscafe&amp;referrer=utm_source%3Dfocuscafe_site%26utm_medium%3Djoin%26utm_campaign%3Dinvite" data-store="google_play" data-placement="join">Google Play で入手（Android）</a>
+    <a class="btn btn-outline" href="https://apps.apple.com/jp/app/id6816468942" id="store-ios" data-store="app_store" data-placement="join">App Store で入手（iPhone）</a>
+    <a class="btn btn-outline play" href="https://play.google.com/store/apps/details?id=com.libetech.focuscafe&amp;referrer=utm_source%3Dfocuscafe_site%26utm_medium%3Djoin%26utm_campaign%3Dinvite" id="store-play" data-store="google_play" data-placement="join">Google Play で入手（Android）</a>
   </div>
 </section>
 
@@ -127,6 +127,40 @@
       sel.addRange(range);
       status.textContent = '長押ししてコピーしてください';
     };
+    // ストアのボタンは href にコードを入れない（GA4 の外部リンクの計測で URL が送られるため）
+    // 押したときだけ、コードを足した先へ移す。JavaScript が動かなければ href のままストアへ進む
+    var plainClick = function (e) {
+      return !(e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0);
+    };
+    // Google Play：referrer の末尾にコードを足す（referrer の値全体を URL エンコードする）
+    var play = document.getElementById('store-play');
+    play.addEventListener('click', function (e) {
+      if (!plainClick(e)) return;
+      var href = play.getAttribute('href');
+      var m = /referrer=([^&]*)/.exec(href);
+      if (!m) return;
+      e.preventDefault();
+      var referrer = decodeURIComponent(m[1]) + '&invite_code=' + code;
+      location.href = href.replace(m[0], 'referrer=' + encodeURIComponent(referrer));
+    });
+    // App Store：移る前に、このページの URL（コード付き）をコピーする。コピーできなくても、1秒以内にストアへ進む
+    var ios = document.getElementById('store-ios');
+    ios.addEventListener('click', function (e) {
+      if (!plainClick(e)) return;
+      e.preventDefault();
+      var went = false;
+      var go = function () {
+        if (went) return;
+        went = true;
+        location.href = ios.getAttribute('href');
+      };
+      setTimeout(go, 1000);
+      if (!navigator.clipboard) return go();
+      navigator.clipboard.writeText('https://focuscafe.libetech.info/join.html?code=' + code).then(function () {
+        status.textContent = 'このページのリンクをコピーしました';
+        go();
+      }, go);
+    });
     button.addEventListener('click', function () {
       if (!navigator.clipboard) return selectCode();
       navigator.clipboard.writeText(code).then(function () {
