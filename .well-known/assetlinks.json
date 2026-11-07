@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.libetech.focuscafe",
+      "sha256_cert_fingerprints": [
+        "D7:7B:E1:03:E8:B2:25:73:AF:C4:F3:37:23:3A:8C:B9:CA:B8:0D:70:C4:A7:BA:72:B1:CB:31:E2:5E:3C:B3:37",
+        "12:A1:10:E8:79:01:5A:2D:A2:AE:57:59:F7:52:2C:55:80:D1:80:DD:8C:BA:72:C9:AB:48:F2:F0:23:61:AC:9E"
+      ]
+    }
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["UB76392RS7.com.libetech.focuscafe"],
+        "components": [
+          { "/": "/join.html", "?": { "code": "??????" } },
+          { "/": "/en/join.html", "?": { "code": "??????" } }
+        ]
+      }
+    ]
+  }
+}
