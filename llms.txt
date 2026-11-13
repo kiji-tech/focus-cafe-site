@@ -11,7 +11,7 @@
 - やりとりは部屋の中の文字のチャットだけ（1回200文字まで、7日で消える）。チャットは集中していないときだけ使える。通話・マイク・フレンド申請・個人あてのメッセージはない。通報とブロックができる
 - 1日に1回ポモドーロを終えると連続日数がのびる。5日続けるごとに「お休みチケット」が1枚もらえ、集中しなかった日は自動で使われて連続日数が途切れない（はじめに5枚、持てるのは10枚まで）
 - 週・月の集中時間のグラフ、今週・今月のランキング（出さない設定もできる）、アバターの着せ替え（顔4種・髪型9種・髪の色16色・体型3種）
-- ログインは Google アカウント（iPhone 版では Apple アカウントも）
+- ログインしなくてもゲストとしてひとり部屋で使える。部屋を作る・招待コードで入る・チャット・ランキング・Plus の購入には Google アカウント（iPhone 版では Apple アカウントも）でログインする。ログインすると記録を引き継ぐ
 
 ## 料金（2026年10月時点）
 
@@ -43,7 +43,7 @@
 
 ## English
 
-Focus Cafe is a Pomodoro timer app where you focus together with friends, surrounded by the sights and sounds of a cafe. Gather in an invite-only room with up to 20 people (8 seated at a time) and work at your own pace, with no calls and no microphone. The app is available in English and Japanese (it follows the device language). Free to use; the optional FocusCafe Plus subscription is ¥300 a month or ¥2,400 a year in Japan as of October 2026 (prices in other countries are shown in the store). iPhone (iOS 16.4 or later) on the App Store and Android (Android 8.0 or later) on Google Play. Operated by LibeTech.
+Focus Cafe is a Pomodoro timer app where you focus together with friends, surrounded by the sights and sounds of a cafe. Gather in an invite-only room with up to 20 people (8 seated at a time) and work at your own pace, with no calls and no microphone. The app is available in English and Japanese (it follows the device language). Free to use; the optional FocusCafe Plus subscription is ¥300 a month or ¥2,400 a year in Japan as of October 2026 (prices in other countries are shown in the store). iPhone (iOS 16.4 or later) on the App Store and Android (Android 8.0 or later) on Google Play. You can use your own solo room as a guest without signing in. Creating a room, joining with an invite code, chat, rankings, and buying Plus require signing in with a Google account (or an Apple account on iPhone); your records carry over when you sign in. Operated by LibeTech.
 
 - [Home (features, pricing, FAQ)](https://focuscafe.libetech.info/en/)
 - [Support and contact](https://focuscafe.libetech.info/en/support.html)
